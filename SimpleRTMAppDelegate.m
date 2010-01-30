@@ -153,7 +153,7 @@
 -(void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	NSDictionary *task = [tasks objectAtIndex:row];
 	NSLog(@"%@", task);
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [currentList objectForKey:@"id"], [task objectForKey:@"id"], [[task objectForKey:@"task"] objectForKey:@"id"], nil] 
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", nil]];
 	NSLog(@"%@", params);
 	[tasks removeObject:task];
