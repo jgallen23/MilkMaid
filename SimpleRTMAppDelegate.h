@@ -10,6 +10,7 @@
 #import "EVRZRtmApi.h"
 #import <BWToolkitFramework/BWToolkitFramework.h>
 #import "RTMHelper.h"
+#import "YRKSpinningProgressIndicator.h"
 
 @interface SimpleRTMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
     NSWindow *window;
@@ -21,11 +22,13 @@
 	IBOutlet BWTransparentPopUpButton *listPopUp;
 	IBOutlet BWTransparentTableView *taskTable;
 	IBOutlet NSTextField *addTaskField;
+	IBOutlet YRKSpinningProgressIndicator *progress;
 	
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSPanel *addTaskPanel;
+@property (assign) IBOutlet YRKSpinningProgressIndicator *progress;
 -(IBAction)listSelected:(id)sender;
 -(IBAction)showAddTask:(id)sender;
 -(IBAction)addTaskClicked:(id)sender;

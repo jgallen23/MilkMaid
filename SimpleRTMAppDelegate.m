@@ -17,6 +17,9 @@
 	NSString *apiKey = @"1734ba9431007c2242b6865a69940aa5";
 	NSString *secret = @"72d1c12ffb26e759";
 	
+	[progress setForeColor:[NSColor whiteColor]];
+	[progress startAnimation:nil];
+	
 	[addTaskPanel orderOut:self];
 	
 	[taskTable setDelegate:self];
@@ -94,9 +97,11 @@
 	[lists retain];
 	//[data release];
 	[pool release];
+	[progress setHidden:YES];
 }
 
 -(void)listSelected:(id)sender {
+	[progress setHidden:NO];
 	NSLog(@"selected");
 	NSInteger selectedIndex = [listPopUp indexOfSelectedItem];
 	selectedIndex--;
@@ -112,6 +117,7 @@
 }
 
 -(void)getTasks {
+	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[currentList objectForKey:@"id"], @"status:incomplete", nil] 
 														 forKeys:[NSArray arrayWithObjects:@"list_id", @"filter", nil]];
@@ -123,6 +129,7 @@
 	
 	[tasks retain];
 	[pool release];
+	[progress setHidden:YES];
 }
 
 -(void)refresh:(id)sender {
@@ -144,7 +151,7 @@
 	if ([cell isMemberOfClass:[BWTransparentCheckboxCell class]]) {
 		return [NSNumber numberWithInteger:NSOffState];
 	} else {
-		[cell setBackgroundColor:[NSColor purpleColor]];
+		//[cell setForegroundColor:[NSColor purpleColor]];
 		return [[tasks objectAtIndex:row] objectForKey:@"name"];
 	}
 	
@@ -162,10 +169,12 @@
 }
 
 -(void)completeTask:(NSDictionary *)taskInfo {
+	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.complete" andParameters:taskInfo withToken:YES];
 	NSLog(@"%@", data);
 	[pool release];
+	[progress setHidden:YES];
 }
 
 -(void)showAddTask:(id)sender {
@@ -179,6 +188,7 @@
 }
 
 -(void)addTask:(NSString*)task {
+	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [currentList objectForKey:@"id"], task, @"1", nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id",@"name", @"parse", nil]];
@@ -186,7 +196,7 @@
 	
 	[self getTasks];
 	[pool release];
-	
+	[progress setHidden:YES];
 }
 
 -(void)addTaskClicked:(id)sender {
