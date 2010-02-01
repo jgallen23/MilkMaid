@@ -208,6 +208,9 @@
 	[self closeSheet:nil];
 }
 
+-(void)showLists:(id)sender {
+	[listPopUp performClick:self];
+}
 								
 
 @end
