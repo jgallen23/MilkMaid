@@ -8,6 +8,7 @@
 
 #import "SimpleRTMAppDelegate.h"
 #define TOKEN @"Token"
+#define LAST_LIST @"LastList"
 @implementation SimpleRTMAppDelegate
 
 @synthesize window;
@@ -98,22 +99,29 @@
 	//[data release];
 	[pool release];
 	[progress setHidden:YES];
+	[self performSelectorOnMainThread:@selector(selectLast) withObject:nil waitUntilDone:NO];
+}
+	 
+-(void)selectLast {
+	NSString *lastList = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_LIST];
+	if (lastList) {
+		[listPopUp selectItemWithTitle:lastList];
+		[self listSelected:nil];
+	}
 }
 
 -(void)listSelected:(id)sender {
-	[progress setHidden:NO];
 	NSLog(@"selected");
 	NSInteger selectedIndex = [listPopUp indexOfSelectedItem];
 	selectedIndex--;
 	if (selectedIndex != -1 && [currentList objectForKey:@"id"] != [[lists objectAtIndex:selectedIndex] objectForKey:@"id"]) {
 		currentList = [lists objectAtIndex:selectedIndex];
-				
+		[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
 		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 		
 		NSLog(@"%@", currentList);
 		[currentList retain];
 	}
-	
 }
 
 -(void)getTasks {
@@ -160,7 +168,10 @@
 			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"0060BF"]];
 		} else if ([pri isEqualToString:@"3"]) {
 			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"359AFF"]];
+		} else {
+			[cell setTextColor:[NSColor whiteColor]];
 		}
+
 
 		return [task objectForKey:@"name"];
 	}
