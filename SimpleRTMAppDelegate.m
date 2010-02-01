@@ -150,11 +150,43 @@
 	id cell = [tableColumn dataCellForRow:row];
 	if ([cell isMemberOfClass:[BWTransparentCheckboxCell class]]) {
 		return [NSNumber numberWithInteger:NSOffState];
-	} else {
-		//[cell setForegroundColor:[NSColor purpleColor]];
-		return [[tasks objectAtIndex:row] objectForKey:@"name"];
+	} else {//if ([cell isMemberOfClass:[BWTransparentTableViewCell class]]) {
+		NSDictionary *task = [tasks objectAtIndex:row];
+		
+		NSString *pri = [task objectForKey:@"priority"];
+		if ([pri isEqualToString:@"1"]) {
+			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"EA5200"]];
+		} else if ([pri isEqualToString:@"2"]) {
+			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"0060BF"]];
+		} else if ([pri isEqualToString:@"3"]) {
+			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"359AFF"]];
+		}
+
+		return [task objectForKey:@"name"];
 	}
 	
+}
+
++ (NSColor *) colorFromHexRGB:(NSString *) inColorString
+{
+	NSColor *result = nil;
+	unsigned int colorCode = 0;
+	unsigned char redByte, greenByte, blueByte;
+	
+	if (nil != inColorString)
+	{
+		NSScanner *scanner = [NSScanner scannerWithString:inColorString];
+		(void) [scanner scanHexInt:&colorCode];	// ignore error
+	}
+	redByte		= (unsigned char) (colorCode >> 16);
+	greenByte	= (unsigned char) (colorCode >> 8);
+	blueByte	= (unsigned char) (colorCode);	// masks off high bits
+	result = [NSColor
+			  colorWithCalibratedRed:		(float)redByte	/ 0xff
+			  green:	(float)greenByte/ 0xff
+			  blue:	(float)blueByte	/ 0xff
+			  alpha:1.0];
+	return result;
 }
 				
 -(void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {

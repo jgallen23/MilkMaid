@@ -23,6 +23,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C9041E77111280A200D0C6A3 /* RTMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9041E76111280A200D0C6A3 /* RTMHelper.m */; };
+		C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */; };
 		C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		8D1107320486CEB800E47090 /* SimpleRTM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRTM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9041E75111280A200D0C6A3 /* RTMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMHelper.h; sourceTree = "<group>"; };
 		C9041E76111280A200D0C6A3 /* RTMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMHelper.m; sourceTree = "<group>"; };
+		C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentTableViewCell.m; sourceTree = "<group>"; };
+		C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentTableViewCell.h; sourceTree = "<group>"; };
 		C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +101,8 @@
 				256AC3D90F4B6AC300CF3369 /* SimpleRTMAppDelegate.m */,
 				C9041E75111280A200D0C6A3 /* RTMHelper.h */,
 				C9041E76111280A200D0C6A3 /* RTMHelper.m */,
+				C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */,
+				C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */,
 				C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */,
 				C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */,
 			);
@@ -260,6 +265,7 @@
 				76EA44C41111682E00E10B8A /* SBJsonWriter.m in Sources */,
 				C9041E77111280A200D0C6A3 /* RTMHelper.m in Sources */,
 				C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */,
+				C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

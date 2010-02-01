@@ -21,9 +21,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="533"/>
 			<integer value="595"/>
 			<integer value="81"/>
+			<integer value="533"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -230,7 +230,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="1071379096">
+								<object class="NSMenuItem" id="418239496">
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">Show Lists</string>
 									<string key="NSKeyEquiv">l</string>
@@ -1261,7 +1261,7 @@
 			<object class="NSWindowTemplate" id="468216479">
 				<int key="NSWindowStyleMask">8223</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{792, 463}, {253, 271}}</string>
+				<string key="NSWindowRect">{{792, 466}, {253, 268}}</string>
 				<int key="NSWTFlags">611844096</int>
 				<string key="NSWindowTitle">SimpleRTM</string>
 				<string key="NSWindowClass">NSPanel</string>
@@ -1275,7 +1275,7 @@
 						<object class="BWTransparentPopUpButton" id="865071592">
 							<reference key="NSNextResponder" ref="625837263"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{8, 242}, {238, 22}}</string>
+							<string key="NSFrame">{{8, 239}, {238, 22}}</string>
 							<reference key="NSSuperview" ref="625837263"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="BWTransparentPopUpButtonCell" key="NSCell" id="7081935">
@@ -1414,7 +1414,7 @@
 														</object>
 														<reference key="NSTextColor" ref="20844329"/>
 													</object>
-													<object class="NSTextFieldCell" key="NSDataCell" id="976988580">
+													<object class="NSTextFieldCell" key="NSDataCell" id="623777842">
 														<int key="NSCellFlags">67239488</int>
 														<int key="NSCellFlags2">272761856</int>
 														<string key="NSContents">Text</string>
@@ -1424,7 +1424,7 @@
 															<int key="NSColorSpace">6</int>
 															<string key="NSCatalogName">System</string>
 															<string key="NSColorName">controlColor</string>
-															<object class="NSColor" key="NSColor" id="602646649">
+															<object class="NSColor" key="NSColor" id="745102284">
 																<int key="NSColorSpace">3</int>
 																<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 															</object>
@@ -1448,7 +1448,7 @@
 												<int key="NSColorSpace">6</int>
 												<string key="NSCatalogName">System</string>
 												<string key="NSColorName">controlBackgroundColor</string>
-												<reference key="NSColor" ref="602646649"/>
+												<reference key="NSColor" ref="745102284"/>
 											</object>
 											<object class="NSColor" key="NSGridColor">
 												<int key="NSColorSpace">6</int>
@@ -1472,6 +1472,7 @@
 									</object>
 									<string key="NSFrameSize">{234, 225}</string>
 									<reference key="NSSuperview" ref="602624907"/>
+									<reference key="NSNextKeyView" ref="1010431952"/>
 									<reference key="NSDocView" ref="1010431952"/>
 									<object class="NSColor" key="NSBGColor">
 										<int key="NSColorSpace">4</int>
@@ -1500,23 +1501,24 @@
 									<double key="NSPercent">0.57142859697341919</double>
 								</object>
 							</object>
-							<string key="NSFrame">{{10, 13}, {234, 225}}</string>
+							<string key="NSFrame">{{10, 10}, {234, 225}}</string>
 							<reference key="NSSuperview" ref="625837263"/>
+							<reference key="NSNextKeyView" ref="281667900"/>
 							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="646975129"/>
 							<reference key="NSHScroller" ref="1064800039"/>
 							<reference key="NSContentView" ref="281667900"/>
 							<bytes key="NSScrollAmts">QSAAAEEgAABBsAAAQbAAAA</bytes>
 						</object>
-						<object class="NSCustomView" id="71356491">
+						<object class="NSCustomView" id="746587900">
 							<reference key="NSNextResponder" ref="625837263"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{9, 8}, {16, 16}}</string>
+							<string key="NSFrame">{{9, 5}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="625837263"/>
 							<string key="NSClassName">YRKSpinningProgressIndicator</string>
 						</object>
 					</object>
-					<string key="NSFrameSize">{253, 271}</string>
+					<string key="NSFrameSize">{253, 268}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
@@ -2310,7 +2312,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">progress</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="71356491"/>
+						<reference key="destination" ref="746587900"/>
 					</object>
 					<int key="connectionID">620</int>
 				</object>
@@ -2318,7 +2320,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">showLists:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="1071379096"/>
+						<reference key="destination" ref="418239496"/>
 					</object>
 					<int key="connectionID">622</int>
 				</object>
@@ -2411,7 +2413,7 @@
 							<reference ref="425164168"/>
 							<reference ref="473679681"/>
 							<reference ref="623718391"/>
-							<reference ref="1071379096"/>
+							<reference ref="418239496"/>
 						</object>
 						<reference key="parent" ref="379814623"/>
 					</object>
@@ -3296,7 +3298,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="865071592"/>
 							<reference ref="602624907"/>
-							<reference ref="71356491"/>
+							<reference ref="746587900"/>
 						</object>
 						<reference key="parent" ref="468216479"/>
 					</object>
@@ -3377,7 +3379,7 @@
 						<reference key="object" ref="385279558"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="976988580"/>
+							<reference ref="623777842"/>
 						</object>
 						<reference key="parent" ref="1010431952"/>
 					</object>
@@ -3459,19 +3461,19 @@
 						<reference key="parent" ref="720053764"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">611</int>
-						<reference key="object" ref="976988580"/>
-						<reference key="parent" ref="385279558"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">614</int>
-						<reference key="object" ref="71356491"/>
+						<reference key="object" ref="746587900"/>
 						<reference key="parent" ref="625837263"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">621</int>
-						<reference key="object" ref="1071379096"/>
+						<reference key="object" ref="418239496"/>
 						<reference key="parent" ref="720053764"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">629</int>
+						<reference key="object" ref="623777842"/>
+						<reference key="parent" ref="385279558"/>
 					</object>
 				</object>
 			</object>
@@ -3716,10 +3718,10 @@
 					<string>600.IBPluginDependency</string>
 					<string>601.IBPluginDependency</string>
 					<string>608.IBPluginDependency</string>
-					<string>611.CustomClassName</string>
-					<string>611.IBPluginDependency</string>
 					<string>614.IBPluginDependency</string>
 					<string>621.IBPluginDependency</string>
+					<string>629.CustomClassName</string>
+					<string>629.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>73.ImportedFromIB2</string>
 					<string>79.IBPluginDependency</string>
@@ -3936,9 +3938,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{658, 395}, {253, 271}}</string>
+					<string>{{544, 265}, {253, 268}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{658, 395}, {253, 271}}</string>
+					<string>{{544, 265}, {253, 268}}</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.brandonwalkin.BWToolkit</string>
@@ -3962,9 +3964,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{1004, 671}, {276, 91}}</string>
+					<string>{{612, 671}, {276, 91}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{1004, 671}, {276, 91}}</string>
+					<string>{{612, 671}, {276, 91}}</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3974,9 +3976,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>BWTransparentTextFieldCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>TransparentTableViewCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -4010,7 +4012,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">622</int>
+			<int key="maxID">629</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4077,6 +4079,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">SimpleRTMAppDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">TransparentTableViewCell</string>
+					<string key="superclassName">NSTextFieldCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">TransparentTableViewCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -4149,14 +4159,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">BWToolkitFramework.framework/Headers/BWTransparentTableView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">BWTransparentTextFieldCell</string>
-					<string key="superclassName">NSTextFieldCell</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">BWToolkitFramework.framework/Headers/BWTransparentTextFieldCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

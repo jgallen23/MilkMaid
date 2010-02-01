@@ -27,8 +27,10 @@
 		NSArray *taskSeriesList = [RTMHelper getArray:[list objectForKey:@"taskseries"]];
 		NSArray* taskSeriesListReversed = [[taskSeriesList reverseObjectEnumerator] allObjects];
 		for (NSDictionary *taskSeries in taskSeriesListReversed) {
-			NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[list objectForKey:@"id"], [taskSeries objectForKey:@"id"], [[taskSeries objectForKey:@"task"] objectForKey:@"id"], [taskSeries objectForKey:@"name"] ,nil] 
-															 forKeys:[NSArray arrayWithObjects:@"list_id", @"taskseries_id", @"task_id", @"name", nil]];
+			NSDictionary *t = [taskSeries objectForKey:@"task"];
+			NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[list objectForKey:@"id"], [taskSeries objectForKey:@"id"], 
+																	  [t objectForKey:@"id"], [taskSeries objectForKey:@"name"], [t objectForKey:@"priority"] ,nil] 
+															 forKeys:[NSArray arrayWithObjects:@"list_id", @"taskseries_id", @"task_id", @"name", @"priority", nil]];
 			[tasks addObject:task];
 		}
 	}
