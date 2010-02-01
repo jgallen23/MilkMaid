@@ -24,6 +24,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C9041E77111280A200D0C6A3 /* RTMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9041E76111280A200D0C6A3 /* RTMHelper.m */; };
 		C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */; };
+		C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */ = {isa = PBXBuildFile; fileRef = C9AF203D1116A44D00BC2280 /* rtm.icns */; };
 		C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		C9041E76111280A200D0C6A3 /* RTMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMHelper.m; sourceTree = "<group>"; };
 		C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentTableViewCell.m; sourceTree = "<group>"; };
 		C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentTableViewCell.h; sourceTree = "<group>"; };
+		C9AF203D1116A44D00BC2280 /* rtm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rtm.icns; sourceTree = "<group>"; };
 		C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF203D1116A44D00BC2280 /* rtm.icns */,
 				8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -244,6 +247,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */,
+				C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
