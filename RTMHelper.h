@@ -13,6 +13,5 @@
 
 }
 
-+ (NSArray*)getFlatTaskList:(NSDictionary*)rtmResponse;
-+ (NSArray*)getArray:(id)obj;
+- (NSMutableArray*)getFlatTaskList:(NSDictionary*)rtmResponse;
 @end

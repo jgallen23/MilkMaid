@@ -131,7 +131,9 @@
 														 forKeys:[NSArray arrayWithObjects:@"list_id", @"filter", nil]];
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:params withToken:YES];
 	
-	tasks = [RTMHelper getFlatTaskList:data];
+	RTMHelper *rtmHelper = [[RTMHelper alloc] init];
+	
+	tasks = [rtmHelper getFlatTaskList:data];
 
 	[self performSelectorOnMainThread:@selector(loadTaskData) withObject:nil waitUntilDone:NO];
 	
@@ -171,7 +173,6 @@
 		} else {
 			[cell setTextColor:[NSColor whiteColor]];
 		}
-
 
 		return [task objectForKey:@"name"];
 	}

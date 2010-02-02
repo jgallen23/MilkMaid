@@ -8,11 +8,14 @@
 
 #import "RTMHelper.h"
 
+static int compare (id obj1, id obj2, void *context) {
+	return [[obj1 objectForKey:@"priority"] compare:[obj2 objectForKey:@"priority"]];
+}
 
 @implementation RTMHelper
 
 
-+(NSArray*)getFlatTaskList:(NSDictionary *)rtmResponse {
+-(NSMutableArray*)getFlatTaskList:(NSDictionary *)rtmResponse {
 	
 	NSMutableArray *tasks = [[NSMutableArray alloc] init];
 	
@@ -21,10 +24,10 @@
 	if (![taskList objectForKey:@"list"])
 		return tasks;
 	
-	NSArray *listTasks = [RTMHelper getArray:[[rtmResponse objectForKey:@"tasks"] objectForKey:@"list"]];
+	NSArray *listTasks = [self getArray:[[rtmResponse objectForKey:@"tasks"] objectForKey:@"list"]];
 
 	for (NSDictionary *list in listTasks) {
-		NSArray *taskSeriesList = [RTMHelper getArray:[list objectForKey:@"taskseries"]];
+		NSArray *taskSeriesList = [self getArray:[list objectForKey:@"taskseries"]];
 		NSArray* taskSeriesListReversed = [[taskSeriesList reverseObjectEnumerator] allObjects];
 		for (NSDictionary *taskSeries in taskSeriesListReversed) {
 			NSDictionary *t = [taskSeries objectForKey:@"task"];
@@ -36,10 +39,16 @@
 	}
 	
 	
+	return [self sortTasks:tasks];
+}
+
+-(NSMutableArray*)sortTasks:(NSMutableArray*)tasks {
+	[tasks sortUsingFunction:compare context:nil];
 	return tasks;
 }
 
-+(NSArray*)getArray:(id)obj {
+
+-(NSArray*)getArray:(id)obj {
 	if ([obj isKindOfClass:[NSArray class]]) {
 		return obj;
 	} else {
