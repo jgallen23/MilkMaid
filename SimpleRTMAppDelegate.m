@@ -148,6 +148,7 @@
 
 -(void)loadTaskData {
 	//NSLog(@"%@", tasks);
+	[[[NSApplication sharedApplication] dockTile] setBadgeLabel:[[NSNumber numberWithInt:[tasks count]] stringValue]];
 	[taskTable reloadData];
 }
 
