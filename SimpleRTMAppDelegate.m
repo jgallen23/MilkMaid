@@ -258,6 +258,68 @@
 -(void)showLists:(id)sender {
 	[listPopUp performClick:self];
 }
-								
+
+-(void)setTaskPriority:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], [sender title], nil] 
+														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"priority", nil]];
+	[NSThread detachNewThreadSelector:@selector(setPriority:) toTarget:self withObject:params];
+}
+						
+-(void)setPriority:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.setPriority" andParameters:params withToken:YES];
+	
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
+
+-(void)setTaskDueDate:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], [sender title], @"1", nil] 
+														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"due", @"parse", nil]];
+	[NSThread detachNewThreadSelector:@selector(setDueDate:) toTarget:self withObject:params];
+}
+
+-(void)setDueDate:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.setDueDate" andParameters:params withToken:YES];
+	
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
+
+-(void)menuPostponeTask:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
+														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", nil]];
+	[NSThread detachNewThreadSelector:@selector(postponeTask:) toTarget:self withObject:params];
+}
+
+-(void)postponeTask:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.postpone" andParameters:params withToken:YES];
+	
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
 
 @end

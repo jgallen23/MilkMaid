@@ -35,4 +35,7 @@
 -(IBAction)closeSheet:(id)sender;
 -(IBAction)refresh:(id)sender;
 -(IBAction)showLists:(id)sender;
+-(IBAction)setTaskPriority:(id)sender;
+-(IBAction)setTaskDueDate:(id)sender;
+-(IBAction)menuPostponeTask:(id)sender;
 @end
