@@ -228,6 +228,7 @@
 }
 
 -(void)closeSheet:(id)sender {
+	[addTaskField setStringValue:@""];
 	[addTaskPanel orderOut:nil];
 	[NSApp endSheet:addTaskPanel];
 }
@@ -249,7 +250,7 @@
 	NSLog(@"%@", task);
 
 	[NSThread detachNewThreadSelector:@selector(addTask:) toTarget:self withObject:task];
-	
+
 	[self closeSheet:nil];
 }
 
