@@ -148,6 +148,7 @@
 
 -(void)loadTaskData {
 	//NSLog(@"%@", tasks);
+	[window setTitle:[NSString stringWithFormat:@"SimpleRTM (%d)", [tasks count]]];
 	[[[NSApplication sharedApplication] dockTile] setBadgeLabel:[[NSNumber numberWithInt:[tasks count]] stringValue]];
 	[taskTable reloadData];
 }
@@ -210,7 +211,7 @@
 	NSLog(@"%@", params);
 	[tasks removeObject:task];
 	[NSThread detachNewThreadSelector:@selector(completeTask:) toTarget:self withObject:params];
-	[taskTable reloadData];
+	[self loadTaskData];
 }
 
 -(void)completeTask:(NSDictionary *)taskInfo {
