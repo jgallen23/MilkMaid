@@ -8,6 +8,8 @@
 
 #import "TransparentTableViewCell.h"
 
+
+
 @implementation TransparentTableViewCell
 
 - (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
@@ -25,7 +27,12 @@
 		if (!customTextColor) {
 			[attributes setObject:textColor forKey:NSForegroundColorAttributeName];
 		}
-		[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+		if (shouldBold) {
+			[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+		} else {
+			[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+		}
+
 		
 		NSMutableAttributedString *string = [[[NSMutableAttributedString alloc] initWithString:[self title] attributes:attributes] autorelease];
 		[self setAttributedStringValue:string];
@@ -86,6 +93,10 @@
 - (void)setTextColor:(NSColor *)color {
 	customTextColor = YES;
 	[super setTextColor:color];
+}
+
+- (void)setBold:(BOOL)bold {
+	shouldBold = bold;
 }
 
 @end

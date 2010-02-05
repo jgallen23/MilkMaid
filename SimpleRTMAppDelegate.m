@@ -176,6 +176,13 @@
 			[cell setTextColor:[NSColor whiteColor]];
 		}
 
+		id due = [task objectForKey:@"due"];
+		if ([due isKindOfClass:[NSDate class]] && ([due isPastDate] || [[NSDate date] isEqualToDate:due])) {
+			[cell setBold:YES];
+		} else {
+			[cell setBold:NO];
+		}
+
 		return [task objectForKey:@"name"];
 	}
 	

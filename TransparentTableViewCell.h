@@ -12,6 +12,8 @@
 {
 	BOOL mIsEditingOrSelecting;
 	BOOL customTextColor;
+	BOOL shouldBold;
 }
+
 
 @end
