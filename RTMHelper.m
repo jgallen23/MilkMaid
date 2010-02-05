@@ -10,7 +10,12 @@
 #import "NSDateHelper.h"
 
 static int compare (id obj1, id obj2, void *context) {
-	return [[obj1 objectForKey:@"priority"] compare:[obj2 objectForKey:@"priority"]];
+	if ([[obj1 objectForKey:@"due"] isEqual:[obj2 objectForKey:@"due"]]) {
+		return [[obj1 objectForKey:@"priority"] compare:[obj2 objectForKey:@"priority"]];
+	} else {
+		return [[obj1 objectForKey:@"due"] compare:[obj2 objectForKey:@"due"]];
+	}
+
 }
 
 @implementation RTMHelper
