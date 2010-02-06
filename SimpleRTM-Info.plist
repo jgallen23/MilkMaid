@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SUFeedUrl</key>
-	<string>http://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</string>
+	<string>https://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
