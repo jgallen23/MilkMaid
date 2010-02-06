@@ -7,8 +7,8 @@
       <language>en</language>
          <item>
             <title>Version 0.1</title>
-            <pubDate>Sat, 06 Feb 2010 19:20:11 +0000</pubDate>
-            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFFZcG6uczrfsa+n1mp7uX1ot1d5BAhQ/c8BZSWxs1JajY01BB+DVFLFzVg==" />
+            <pubDate>Sat, 06 Feb 2010 9:00:00 +0000</pubDate>
+            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.1.zip" sparkle:version="0.1" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFQDO/qVVZG4t5886Fj4yJ7smHwmS2QIUKmMlgyzwuMbJ6ERwznUCGQvtfmE=" />
          </item>
    </channel>
 </rss>
