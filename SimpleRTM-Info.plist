@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
 	<key>SUFeedUrl</key>
-	<string>https://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</string>
+	<string>http://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>

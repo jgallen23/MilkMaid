@@ -21,6 +21,7 @@
 		76EA44C31111682E00E10B8A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BC1111682E00E10B8A /* SBJsonParser.m */; };
 		76EA44C41111682E00E10B8A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BE1111682E00E10B8A /* SBJsonWriter.m */; };
 		76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76EA46641111EA5A00E10B8A /* AddTask.xib */; };
+		76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 76F79642111DD45900FD7EFB /* dsa_pub.pem */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -74,6 +75,7 @@
 		76EA44BD1111682E00E10B8A /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		76EA44BE1111682E00E10B8A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		76EA46641111EA5A00E10B8A /* AddTask.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTask.xib; sourceTree = "<group>"; };
+		76F79642111DD45900FD7EFB /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleRTM-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SimpleRTM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRTM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9041E75111280A200D0C6A3 /* RTMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMHelper.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				76F79642111DD45900FD7EFB /* dsa_pub.pem */,
 				C9AF203D1116A44D00BC2280 /* rtm.icns */,
 				8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -259,6 +262,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */,
 				C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */,
+				76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

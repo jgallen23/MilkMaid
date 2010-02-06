@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
    <channel>
       <title>SimpleRTM</title>
-	  <link>https://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</link>
+	  <link>http://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</link>
       <description></description>
       <language>en</language>
          <item>
             <title>Version 0.1</title>
             <pubDate>Sat, 06 Feb 2010 19:20:11 +0000</pubDate>
-            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" />
+            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFFZcG6uczrfsa+n1mp7uX1ot1d5BAhQ/c8BZSWxs1JajY01BB+DVFLFzVg==" />
          </item>
    </channel>
 </rss>
