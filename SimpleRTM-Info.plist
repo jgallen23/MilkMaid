@@ -4,7 +4,7 @@
 <dict>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
-	<key>SUFeedUrl</key>
+	<key>SUFeedURL</key>
 	<string>http://github.com/jgallen23/SimpleRTM/raw/sparkle/appcast.xml</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
