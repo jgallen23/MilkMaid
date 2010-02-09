@@ -329,4 +329,25 @@
 	[progress setHidden:YES];
 }
 
+-(void)menuDeleteTask:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
+														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", nil]];
+	[NSThread detachNewThreadSelector:@selector(postponeTask:) toTarget:self withObject:params];
+}
+
+-(void)deleteTask:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.delete" andParameters:params withToken:YES];
+	
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
+
 @end

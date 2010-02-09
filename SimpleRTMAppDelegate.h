@@ -38,4 +38,5 @@
 -(IBAction)setTaskPriority:(id)sender;
 -(IBAction)setTaskDueDate:(id)sender;
 -(IBAction)menuPostponeTask:(id)sender;
+-(IBAction)menuDeleteTask:(id)sender;
 @end
