@@ -64,7 +64,7 @@
 	[alert addButtonWithTitle:@"Done"];
 	[alert addButtonWithTitle:@"Cancel"];
 	[alert setMessageText:@"Accept Permissions"];
-	[alert setInformativeText:@"A browser will be opened, please select accept permissions"];
+	[alert setInformativeText:@"A browser has been opened. Please press the \"OK, I'll allow it\" button then press the Done button below."];
 	[alert setAlertStyle:NSWarningAlertStyle];
 	
 	if ([alert runModal] == NSAlertFirstButtonReturn) {
