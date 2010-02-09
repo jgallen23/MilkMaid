@@ -266,7 +266,7 @@
 	[listPopUp performClick:self];
 }
 
--(void)setTaskPriority:(id)sender {
+-(void)menuPriority:(id)sender {
 	NSInteger rowIndex = [taskTable selectedRow];
 	if (rowIndex == -1)
 		return;
@@ -287,7 +287,7 @@
 	[progress setHidden:YES];
 }
 
--(void)setTaskDueDate:(id)sender {
+-(void)menuDueDate:(id)sender {
 	NSInteger rowIndex = [taskTable selectedRow];
 	if (rowIndex == -1)
 		return;
