@@ -26,6 +26,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C9041E77111280A200D0C6A3 /* RTMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9041E76111280A200D0C6A3 /* RTMHelper.m */; };
+		C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */ = {isa = PBXBuildFile; fileRef = C927F87A1120FC1B00EA191B /* rtm2.icns */; };
 		C9A02F2C111BF11F00ACBFE1 /* NSDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */; };
 		C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */; };
 		C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */ = {isa = PBXBuildFile; fileRef = C9AF203D1116A44D00BC2280 /* rtm.icns */; };
@@ -80,6 +81,7 @@
 		8D1107320486CEB800E47090 /* SimpleRTM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRTM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9041E75111280A200D0C6A3 /* RTMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMHelper.h; sourceTree = "<group>"; };
 		C9041E76111280A200D0C6A3 /* RTMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMHelper.m; sourceTree = "<group>"; };
+		C927F87A1120FC1B00EA191B /* rtm2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rtm2.icns; sourceTree = "<group>"; };
 		C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateHelper.m; sourceTree = "<group>"; };
 		C9A02F2B111BF11F00ACBFE1 /* NSDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateHelper.h; sourceTree = "<group>"; };
 		C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentTableViewCell.m; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C927F87A1120FC1B00EA191B /* rtm2.icns */,
 				76F79642111DD45900FD7EFB /* dsa_pub.pem */,
 				C9AF203D1116A44D00BC2280 /* rtm.icns */,
 				8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */,
@@ -263,6 +266,7 @@
 				76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */,
 				C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */,
 				76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */,
+				C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
