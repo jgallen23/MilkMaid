@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* SimpleRTMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* SimpleRTMAppDelegate.m */; };
+		7619C0C3111C7C1800F075E9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
+		7619C0FA111C7C2700F075E9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
 		76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
 		76EA44561111652500E10B8A /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
 		76EA44A4111167A500E10B8A /* EVRZRtmApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44A3111167A500E10B8A /* EVRZRtmApi.m */; };
@@ -19,10 +21,12 @@
 		76EA44C31111682E00E10B8A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BC1111682E00E10B8A /* SBJsonParser.m */; };
 		76EA44C41111682E00E10B8A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BE1111682E00E10B8A /* SBJsonWriter.m */; };
 		76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76EA46641111EA5A00E10B8A /* AddTask.xib */; };
+		76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 76F79642111DD45900FD7EFB /* dsa_pub.pem */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C9041E77111280A200D0C6A3 /* RTMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9041E76111280A200D0C6A3 /* RTMHelper.m */; };
+		C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */ = {isa = PBXBuildFile; fileRef = C927F87A1120FC1B00EA191B /* rtm2.icns */; };
 		C9A02F2C111BF11F00ACBFE1 /* NSDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */; };
 		C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */; };
 		C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */ = {isa = PBXBuildFile; fileRef = C9AF203D1116A44D00BC2280 /* rtm.icns */; };
@@ -36,6 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7619C0FA111C7C2700F075E9 /* Sparkle.framework in CopyFiles */,
 				76EA44561111652500E10B8A /* BWToolkitFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +58,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		7619C0C2111C7C1800F075E9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		76EA44511111650700E10B8A /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = ../../../lib/BWToolkit/BWToolkitFramework.framework; sourceTree = SOURCE_ROOT; };
 		76EA44A2111167A500E10B8A /* EVRZRtmApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVRZRtmApi.h; sourceTree = "<group>"; };
 		76EA44A3111167A500E10B8A /* EVRZRtmApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVRZRtmApi.m; sourceTree = "<group>"; };
@@ -70,10 +76,12 @@
 		76EA44BD1111682E00E10B8A /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		76EA44BE1111682E00E10B8A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		76EA46641111EA5A00E10B8A /* AddTask.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTask.xib; sourceTree = "<group>"; };
+		76F79642111DD45900FD7EFB /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleRTM-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SimpleRTM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRTM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9041E75111280A200D0C6A3 /* RTMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMHelper.h; sourceTree = "<group>"; };
 		C9041E76111280A200D0C6A3 /* RTMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMHelper.m; sourceTree = "<group>"; };
+		C927F87A1120FC1B00EA191B /* rtm2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rtm2.icns; sourceTree = "<group>"; };
 		C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateHelper.m; sourceTree = "<group>"; };
 		C9A02F2B111BF11F00ACBFE1 /* NSDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateHelper.h; sourceTree = "<group>"; };
 		C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentTableViewCell.m; sourceTree = "<group>"; };
@@ -90,6 +98,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */,
+				7619C0C3111C7C1800F075E9 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +128,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7619C0C2111C7C1800F075E9 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				76EA44511111650700E10B8A /* BWToolkitFramework.framework */,
 			);
@@ -167,6 +177,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C927F87A1120FC1B00EA191B /* rtm2.icns */,
+				76F79642111DD45900FD7EFB /* dsa_pub.pem */,
 				C9AF203D1116A44D00BC2280 /* rtm.icns */,
 				8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -253,6 +265,8 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */,
 				C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */,
+				76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */,
+				C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +323,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../lib/BWToolkit\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -330,6 +345,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../lib/BWToolkit\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>SimpleRTM</title>
+	  <link>http://github.com/jgallen23/SimpleRTM/raw/master/appcast.xml</link>
+      <description></description>
+      <language>en</language>
+         <item>
+            <title>Version 0.1</title>
+            <pubDate>Sat, 06 Feb 2010 9:00:00 +0000</pubDate>
+            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.1.zip" sparkle:version="0.1" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFQDO/qVVZG4t5886Fj4yJ7smHwmS2QIUKmMlgyzwuMbJ6ERwznUCGQvtfmE=" />
+         </item>
+   </channel>
+</rss>
