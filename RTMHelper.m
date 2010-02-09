@@ -32,7 +32,7 @@ static int comparePriorities(id obj1, id obj2, void *context) {
 		comp = NSOrderedSame;
 	}
 	
-	//NSLog(@"%@ (%d) v %@ (%d) = %d", [obj1 objectForKey:@"name"], priority1, [obj2 objectForKey:@"name"], priority2, comp);
+	NSLog(@"%@ (%d) v %@ (%d) = %d", [obj1 objectForKey:@"name"], priority1, [obj2 objectForKey:@"name"], priority2, comp);
 	return comp;
 }
 
@@ -52,7 +52,7 @@ static int compareDates(id obj1, id obj2, void *context) {
 	} else {
 		comp = NSOrderedSame;
 	}
-	//NSLog(@"%@ (%d) v %@ (%d) = %d", [obj1 objectForKey:@"name"], due1, [obj2 objectForKey:@"name"], due2, comp);
+	NSLog(@"%@ (%d) v %@ (%d) = %d", [obj1 objectForKey:@"name"], due1, [obj2 objectForKey:@"name"], due2, comp);
 	return comp;
 }
 

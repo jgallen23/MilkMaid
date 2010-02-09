@@ -6,9 +6,22 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.1</title>
-            <pubDate>Sat, 06 Feb 2010 9:00:00 +0000</pubDate>
-            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.1.zip" sparkle:version="0.1" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFQDO/qVVZG4t5886Fj4yJ7smHwmS2QIUKmMlgyzwuMbJ6ERwznUCGQvtfmE=" />
+            <title>Version 0.2</title>
+            <pubDate>Tues, 09 Feb 2010 8:00:00 +0000</pubDate>
+			<description><![CDATA[
+				<h2>Features</h2>
+				<ul>
+					<li>New icon</li>
+					<li>Updated auth messaging to be more clear</li>
+					<li>Order by due date first</li>
+					<li>Added menu item to delete a task</li>
+				</ul>
+				<h2>Bug Fixes</h2>
+				<ul>
+					<li>A bunch...</li>
+				</ul>
+			]]></description>
+            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.2.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFBrD2T31I8ilQQVD3Vdc7LnHsGhIAhRa8E7TbDiO6kCpwmqtfBEYHzfVYA==" />
          </item>
    </channel>
 </rss>
