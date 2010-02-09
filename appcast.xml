@@ -21,7 +21,7 @@
 					<li>A bunch...</li>
 				</ul>
 			]]></description>
-            <enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.2.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFBrD2T31I8ilQQVD3Vdc7LnHsGhIAhRa8E7TbDiO6kCpwmqtfBEYHzfVYA==" />
+		<enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.2.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFHnarWk/mzvsOMM8lnv+JNk0enpzAhUApNjFITOUc0icLPSQJZiSekFx9Sg=" />
          </item>
    </channel>
 </rss>
