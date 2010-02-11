@@ -20,7 +20,6 @@
 		76EA44C21111682E00E10B8A /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BA1111682E00E10B8A /* SBJsonBase.m */; };
 		76EA44C31111682E00E10B8A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BC1111682E00E10B8A /* SBJsonParser.m */; };
 		76EA44C41111682E00E10B8A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BE1111682E00E10B8A /* SBJsonWriter.m */; };
-		76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76EA46641111EA5A00E10B8A /* AddTask.xib */; };
 		76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 76F79642111DD45900FD7EFB /* dsa_pub.pem */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -31,6 +30,8 @@
 		C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */; };
 		C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */ = {isa = PBXBuildFile; fileRef = C9AF203D1116A44D00BC2280 /* rtm.icns */; };
 		C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */; };
+		C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FBE61E1123D73300115FFF /* AddTask.xib */; };
+		C9FBE6251123D98600115FFF /* AddTaskWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE6241123D98600115FFF /* AddTaskWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,7 +76,6 @@
 		76EA44BC1111682E00E10B8A /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		76EA44BD1111682E00E10B8A /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		76EA44BE1111682E00E10B8A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		76EA46641111EA5A00E10B8A /* AddTask.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTask.xib; sourceTree = "<group>"; };
 		76F79642111DD45900FD7EFB /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleRTM-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SimpleRTM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRTM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +89,9 @@
 		C9AF203D1116A44D00BC2280 /* rtm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rtm.icns; sourceTree = "<group>"; };
 		C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
+		C9FBE61E1123D73300115FFF /* AddTask.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTask.xib; sourceTree = "<group>"; };
+		C9FBE6231123D98600115FFF /* AddTaskWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskWindowController.h; sourceTree = "<group>"; };
+		C9FBE6241123D98600115FFF /* AddTaskWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */,
 				C9A02F2B111BF11F00ACBFE1 /* NSDateHelper.h */,
 				C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */,
+				C9FBE6231123D98600115FFF /* AddTaskWindowController.h */,
+				C9FBE6241123D98600115FFF /* AddTaskWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -183,7 +188,7 @@
 				8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
-				76EA46641111EA5A00E10B8A /* AddTask.xib */,
+				C9FBE61E1123D73300115FFF /* AddTask.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -263,10 +268,10 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				76EA46651111EA5A00E10B8A /* AddTask.xib in Resources */,
 				C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */,
 				76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */,
 				C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */,
+				C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +295,7 @@
 				C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */,
 				C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */,
 				C9A02F2C111BF11F00ACBFE1 /* NSDateHelper.m in Sources */,
+				C9FBE6251123D98600115FFF /* AddTaskWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

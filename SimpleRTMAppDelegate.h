@@ -11,27 +11,27 @@
 #import <BWToolkitFramework/BWToolkitFramework.h>
 #import "RTMHelper.h"
 #import "YRKSpinningProgressIndicator.h"
+#import "AddTaskWindowController.h"
 
 @interface SimpleRTMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
     NSWindow *window;
-	NSPanel *addTaskPanel;
+	AddTaskWindowController *addTaskWindowController;
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;
 	NSDictionary *currentList;
 	NSMutableArray *tasks;
 	IBOutlet BWTransparentPopUpButton *listPopUp;
 	IBOutlet BWTransparentTableView *taskTable;
-	IBOutlet NSTextField *addTaskField;
+
 	IBOutlet YRKSpinningProgressIndicator *progress;
 	
 }
 
 @property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet NSPanel *addTaskPanel;
 @property (assign) IBOutlet YRKSpinningProgressIndicator *progress;
 -(IBAction)listSelected:(id)sender;
 -(IBAction)showAddTask:(id)sender;
--(IBAction)addTaskClicked:(id)sender;
+
 -(IBAction)closeSheet:(id)sender;
 -(IBAction)refresh:(id)sender;
 -(IBAction)showLists:(id)sender;

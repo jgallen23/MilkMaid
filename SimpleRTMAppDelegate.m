@@ -21,7 +21,7 @@
 	[progress setForeColor:[NSColor whiteColor]];
 	[progress startAnimation:nil];
 	
-	[addTaskPanel orderOut:self];
+//	[addTaskPanel orderOut:self];
 	
 	[taskTable setDelegate:self];
 	[taskTable setDataSource:self];
@@ -232,13 +232,21 @@
 
 -(void)showAddTask:(id)sender {
 	NSLog(@"new task");
-	[NSApp beginSheet:addTaskPanel modalForWindow:window modalDelegate:self didEndSelector:nil contextInfo:nil];
+	if (!addTaskWindowController)
+		addTaskWindowController = [[AddTaskWindowController alloc] initWithWindowNibName:@"AddTask"];
+	NSWindow *sheet = [addTaskWindowController window];
+	NSLog(@"%@", sheet);
+	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
+	   didEndSelector:@selector(closeAddTaskSheet:returnCode:contextInfo:) contextInfo:nil];
 }
 
--(void)closeSheet:(id)sender {
-	[addTaskField setStringValue:@""];
-	[addTaskPanel orderOut:nil];
-	[NSApp endSheet:addTaskPanel];
+-(void)closeAddTaskSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		NSString *task = [addTaskWindowController task];
+		[NSThread detachNewThreadSelector:@selector(addTask:) toTarget:self withObject:task];
+	}
+
 }
 
 -(void)addTask:(NSString*)task {
@@ -251,15 +259,6 @@
 	[self getTasks];
 	[pool release];
 	[progress setHidden:YES];
-}
-
--(void)addTaskClicked:(id)sender {
-	NSString *task = [addTaskField stringValue];
-	NSLog(@"%@", task);
-
-	[NSThread detachNewThreadSelector:@selector(addTask:) toTarget:self withObject:task];
-
-	[self closeSheet:nil];
 }
 
 -(void)showLists:(id)sender {
