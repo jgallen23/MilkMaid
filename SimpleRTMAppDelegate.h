@@ -12,13 +12,16 @@
 #import "RTMHelper.h"
 #import "YRKSpinningProgressIndicator.h"
 #import "AddTaskWindowController.h"
+#import "SearchWindowController.h"
 
 @interface SimpleRTMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
     NSWindow *window;
 	AddTaskWindowController *addTaskWindowController;
+	SearchWindowController *searchWindowController;
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;
 	NSDictionary *currentList;
+	NSString *currentSearch;
 	NSMutableArray *tasks;
 	IBOutlet BWTransparentPopUpButton *listPopUp;
 	IBOutlet BWTransparentTableView *taskTable;
@@ -39,4 +42,5 @@
 -(IBAction)menuDueDate:(id)sender;
 -(IBAction)menuPostponeTask:(id)sender;
 -(IBAction)menuDeleteTask:(id)sender;
+-(IBAction)menuSearch:(id)sender;
 @end

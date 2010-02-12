@@ -142,6 +142,25 @@
 	[progress setHidden:YES];
 }
 
+-(void)searchTasks:(NSString*)searchString {
+	[progress setHidden:NO];
+	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:newSearch, nil] 
+														 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
+	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:params withToken:YES];
+	
+	RTMHelper *rtmHelper = [[RTMHelper alloc] init];
+	
+	tasks = [rtmHelper getFlatTaskList:data];
+	
+	[self performSelectorOnMainThread:@selector(loadTaskData) withObject:nil waitUntilDone:NO];
+	
+	[tasks retain];
+	[pool release];
+	[progress setHidden:YES];
+}
+
 -(void)refresh:(id)sender {
 	[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 }
@@ -347,6 +366,27 @@
 	[self getTasks];
 	[pool release];
 	[progress setHidden:YES];
+}
+
+-(void)menuSearch:(id)sender {
+	NSLog(@"new task");
+	if (!searchWindowController)
+		searchWindowController = [[SearchWindowController alloc] initWithWindowNibName:@"Search"];
+	NSWindow *sheet = [searchWindowController window];
+	NSLog(@"%@", sheet);
+	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
+	   didEndSelector:@selector(closeSearchSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(void)closeSearchSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		currentSearch = [searchWindowController searchString];
+		currentList = nil;
+		[listPopUp selectItemAtIndex:0];
+		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
+	}
+	
 }
 
 @end
