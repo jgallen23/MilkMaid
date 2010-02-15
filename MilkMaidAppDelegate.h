@@ -14,7 +14,7 @@
 #import "AddTaskWindowController.h"
 #import "SearchWindowController.h"
 
-@interface SimpleRTMAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
+@interface MilkMaidAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
     NSWindow *window;
 	AddTaskWindowController *addTaskWindowController;
 	SearchWindowController *searchWindowController;

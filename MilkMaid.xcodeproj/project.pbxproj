@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		256AC3DA0F4B6AC300CF3369 /* SimpleRTMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* SimpleRTMAppDelegate.m */; };
+		256AC3DA0F4B6AC300CF3369 /* MilkMaidAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* MilkMaidAppDelegate.m */; };
 		7619C0C3111C7C1800F075E9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
 		7619C0FA111C7C2700F075E9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
 		7693DFF21125B27900DDF1A1 /* Search.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7693DFF11125B27900DDF1A1 /* Search.xib */; };
@@ -55,13 +55,14 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		256AC3D80F4B6AC300CF3369 /* SimpleRTMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleRTMAppDelegate.h; sourceTree = "<group>"; };
-		256AC3D90F4B6AC300CF3369 /* SimpleRTMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleRTMAppDelegate.m; sourceTree = "<group>"; };
-		256AC3F00F4B6AF500CF3369 /* SimpleRTM_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleRTM_Prefix.pch; sourceTree = "<group>"; };
+		256AC3D80F4B6AC300CF3369 /* MilkMaidAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilkMaidAppDelegate.h; sourceTree = "<group>"; };
+		256AC3D90F4B6AC300CF3369 /* MilkMaidAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilkMaidAppDelegate.m; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* MilkMaid_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilkMaid_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		7619C0C2111C7C1800F075E9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		761FD26D1129B7CE00A06E9B /* MilkMaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilkMaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7693DFF11125B27900DDF1A1 /* Search.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Search.xib; sourceTree = "<group>"; };
 		7693DFF51125B30700DDF1A1 /* SearchWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWindowController.h; sourceTree = "<group>"; };
 		7693DFF61125B30700DDF1A1 /* SearchWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWindowController.m; sourceTree = "<group>"; };
@@ -82,8 +83,7 @@
 		76EA44BD1111682E00E10B8A /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		76EA44BE1111682E00E10B8A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		76F79642111DD45900FD7EFB /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleRTM-Info.plist"; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* SimpleRTM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRTM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107310486CEB800E47090 /* MilkMaid-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MilkMaid-Info.plist"; sourceTree = "<group>"; };
 		C9041E75111280A200D0C6A3 /* RTMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMHelper.h; sourceTree = "<group>"; };
 		C9041E76111280A200D0C6A3 /* RTMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMHelper.m; sourceTree = "<group>"; };
 		C927F87A1120FC1B00EA191B /* rtm2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rtm2.icns; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 				76EA44B11111682E00E10B8A /* JSON */,
 				76EA44A2111167A500E10B8A /* EVRZRtmApi.h */,
 				76EA44A3111167A500E10B8A /* EVRZRtmApi.m */,
-				256AC3D80F4B6AC300CF3369 /* SimpleRTMAppDelegate.h */,
-				256AC3D90F4B6AC300CF3369 /* SimpleRTMAppDelegate.m */,
+				256AC3D80F4B6AC300CF3369 /* MilkMaidAppDelegate.h */,
+				256AC3D90F4B6AC300CF3369 /* MilkMaidAppDelegate.m */,
 				C9041E75111280A200D0C6A3 /* RTMHelper.h */,
 				C9041E76111280A200D0C6A3 /* RTMHelper.m */,
 				C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */,
@@ -160,12 +160,12 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* SimpleRTM.app */,
+				761FD26D1129B7CE00A06E9B /* MilkMaid.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* SimpleRTM */ = {
+		29B97314FDCFA39411CA2CEA /* MilkMaid */ = {
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -174,13 +174,13 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = SimpleRTM;
+			name = MilkMaid;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				256AC3F00F4B6AF500CF3369 /* SimpleRTM_Prefix.pch */,
+				256AC3F00F4B6AF500CF3369 /* MilkMaid_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -192,7 +192,7 @@
 				C927F87A1120FC1B00EA191B /* rtm2.icns */,
 				76F79642111DD45900FD7EFB /* dsa_pub.pem */,
 				C9AF203D1116A44D00BC2280 /* rtm.icns */,
-				8D1107310486CEB800E47090 /* SimpleRTM-Info.plist */,
+				8D1107310486CEB800E47090 /* MilkMaid-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				C9FBE61E1123D73300115FFF /* AddTask.xib */,
@@ -233,9 +233,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* SimpleRTM */ = {
+		8D1107260486CEB800E47090 /* MilkMaid */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "SimpleRTM" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MilkMaid" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -246,10 +246,10 @@
 			);
 			dependencies = (
 			);
-			name = SimpleRTM;
+			name = MilkMaid;
 			productInstallPath = "$(HOME)/Applications";
-			productName = SimpleRTM;
-			productReference = 8D1107320486CEB800E47090 /* SimpleRTM.app */;
+			productName = MilkMaid;
+			productReference = 761FD26D1129B7CE00A06E9B /* MilkMaid.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -257,14 +257,17 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SimpleRTM" */;
+			attributes = {
+				ORGANIZATIONNAME = JGA;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MilkMaid" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 29B97314FDCFA39411CA2CEA /* SimpleRTM */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* MilkMaid */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* SimpleRTM */,
+				8D1107260486CEB800E47090 /* MilkMaid */,
 			);
 		};
 /* End PBXProject section */
@@ -292,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				256AC3DA0F4B6AC300CF3369 /* SimpleRTMAppDelegate.m in Sources */,
+				256AC3DA0F4B6AC300CF3369 /* MilkMaidAppDelegate.m in Sources */,
 				76EA44A4111167A500E10B8A /* EVRZRtmApi.m in Sources */,
 				76EA44BF1111682E00E10B8A /* NSObject+SBJSON.m in Sources */,
 				76EA44C01111682E00E10B8A /* NSString+SBJSON.m in Sources */,
@@ -346,10 +349,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SimpleRTM_Prefix.pch;
-				INFOPLIST_FILE = "SimpleRTM-Info.plist";
+				GCC_PREFIX_HEADER = MilkMaid_Prefix.pch;
+				INFOPLIST_FILE = "MilkMaid-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = SimpleRTM;
+				PRODUCT_NAME = MilkMaid;
 			};
 			name = Debug;
 		};
@@ -365,10 +368,10 @@
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SimpleRTM_Prefix.pch;
-				INFOPLIST_FILE = "SimpleRTM-Info.plist";
+				GCC_PREFIX_HEADER = MilkMaid_Prefix.pch;
+				INFOPLIST_FILE = "MilkMaid-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = SimpleRTM;
+				PRODUCT_NAME = MilkMaid;
 			};
 			name = Release;
 		};
@@ -401,7 +404,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "SimpleRTM" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MilkMaid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -410,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SimpleRTM" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MilkMaid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

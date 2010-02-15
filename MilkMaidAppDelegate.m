@@ -6,10 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "SimpleRTMAppDelegate.h"
+#import "MilkMaidAppDelegate.h"
 #define TOKEN @"Token"
 #define LAST_LIST @"LastList"
-@implementation SimpleRTMAppDelegate
+@implementation MilkMaidAppDelegate
 
 @synthesize window;
 
@@ -167,7 +167,7 @@
 
 -(void)loadTaskData {
 	//NSLog(@"%@", tasks);
-	[window setTitle:[NSString stringWithFormat:@"SimpleRTM (%d)", [tasks count]]];
+	[window setTitle:[NSString stringWithFormat:@"MilkMaid (%d)", [tasks count]]];
 	[[[NSApplication sharedApplication] dockTile] setBadgeLabel:[[NSNumber numberWithInt:[tasks count]] stringValue]];
 	[taskTable reloadData];
 }
@@ -186,11 +186,11 @@
 		
 		NSString *pri = [task objectForKey:@"priority"];
 		if ([pri isEqualToString:@"1"]) {
-			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"EA5200"]];
+			[cell setTextColor:[[self class] colorFromHexRGB:@"EA5200"]];
 		} else if ([pri isEqualToString:@"2"]) {
-			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"0060BF"]];
+			[cell setTextColor:[[self class] colorFromHexRGB:@"0060BF"]];
 		} else if ([pri isEqualToString:@"3"]) {
-			[cell setTextColor:[SimpleRTMAppDelegate colorFromHexRGB:@"359AFF"]];
+			[cell setTextColor:[[self class] colorFromHexRGB:@"359AFF"]];
 		} else {
 			[cell setTextColor:[NSColor whiteColor]];
 		}
