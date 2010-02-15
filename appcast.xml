@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
    <channel>
-      <title>SimpleRTM</title>
-	  <link>http://github.com/jgallen23/SimpleRTM/raw/master/appcast.xml</link>
+      <title>MilkMaid</title>
+	  <link>http://github.com/jgallen23/MilkMaid/raw/master/appcast.xml</link>
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.2</title>
-            <pubDate>Tues, 09 Feb 2010 8:00:00 +0000</pubDate>
+            <title>Version 0.3</title>
+            <pubDate>Mon, 15 Feb 2010 9:00:00 +0000</pubDate>
 			<description><![CDATA[
 				<h2>Features</h2>
 				<ul>
-					<li>New icon</li>
-					<li>Updated auth messaging to be more clear</li>
-					<li>Order by due date first</li>
-					<li>Added menu item to delete a task</li>
-				</ul>
-				<h2>Bug Fixes</h2>
-				<ul>
-					<li>A bunch...</li>
+					<li>Search for Tasks (cmd-S)</li>
+					<li>Renamed to MilkMaid</li>
 				</ul>
 			]]></description>
-		<enclosure url="http://cloud.github.com/downloads/jgallen23/SimpleRTM/SimpleRTM-0.2.zip" sparkle:version="0.2" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFHnarWk/mzvsOMM8lnv+JNk0enpzAhUApNjFITOUc0icLPSQJZiSekFx9Sg=" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.3.tar.gz" sparkle:version="0.3" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFCkcW0fpA4sYyQeT8+7MtI43Utr4AhQR8ACrrlkRcuYbOtRqfnoWhrEjXw==" />
          </item>
    </channel>
 </rss>
