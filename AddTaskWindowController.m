@@ -21,6 +21,7 @@
 }
 
 -(void)cancelClicked:(id)sender {
+	[addTaskField setStringValue:@""];
 	[NSApp endSheet:[self window] returnCode:0];
 }
 

@@ -11,6 +11,8 @@
 		256AC3DA0F4B6AC300CF3369 /* MilkMaidAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* MilkMaidAppDelegate.m */; };
 		7619C0C3111C7C1800F075E9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
 		7619C0FA111C7C2700F075E9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
+		767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 767A8742112AF51E00A77326 /* MultiAdd.xib */; };
+		767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767A8757112AF58E00A77326 /* MultiAddWindowController.m */; };
 		7693DFF21125B27900DDF1A1 /* Search.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7693DFF11125B27900DDF1A1 /* Search.xib */; };
 		7693DFF71125B30700DDF1A1 /* SearchWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7693DFF61125B30700DDF1A1 /* SearchWindowController.m */; };
 		76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
@@ -63,6 +65,9 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		7619C0C2111C7C1800F075E9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		761FD26D1129B7CE00A06E9B /* MilkMaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilkMaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		767A8742112AF51E00A77326 /* MultiAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiAdd.xib; sourceTree = "<group>"; };
+		767A8756112AF58E00A77326 /* MultiAddWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiAddWindowController.h; sourceTree = "<group>"; };
+		767A8757112AF58E00A77326 /* MultiAddWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiAddWindowController.m; sourceTree = "<group>"; };
 		7693DFF11125B27900DDF1A1 /* Search.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Search.xib; sourceTree = "<group>"; };
 		7693DFF51125B30700DDF1A1 /* SearchWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWindowController.h; sourceTree = "<group>"; };
 		7693DFF61125B30700DDF1A1 /* SearchWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWindowController.m; sourceTree = "<group>"; };
@@ -133,6 +138,8 @@
 				C9FBE6241123D98600115FFF /* AddTaskWindowController.m */,
 				7693DFF51125B30700DDF1A1 /* SearchWindowController.h */,
 				7693DFF61125B30700DDF1A1 /* SearchWindowController.m */,
+				767A8756112AF58E00A77326 /* MultiAddWindowController.h */,
+				767A8757112AF58E00A77326 /* MultiAddWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				C9FBE61E1123D73300115FFF /* AddTask.xib */,
 				7693DFF11125B27900DDF1A1 /* Search.xib */,
+				767A8742112AF51E00A77326 /* MultiAdd.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 				C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */,
 				C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */,
 				7693DFF21125B27900DDF1A1 /* Search.xib in Resources */,
+				767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +318,7 @@
 				C9A02F2C111BF11F00ACBFE1 /* NSDateHelper.m in Sources */,
 				C9FBE6251123D98600115FFF /* AddTaskWindowController.m in Sources */,
 				7693DFF71125B30700DDF1A1 /* SearchWindowController.m in Sources */,
+				767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

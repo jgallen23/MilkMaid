@@ -22,7 +22,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="533"/>
-			<integer value="29"/>
+			<integer value="81"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -215,6 +215,15 @@
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">New Task</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">DQ</string>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="510805079">
+									<reference key="NSMenu" ref="720053764"/>
+									<string key="NSTitle">Add Multiple Tasks</string>
+									<string key="NSKeyEquiv">m</string>
+									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -1674,6 +1683,14 @@
 					</object>
 					<int key="connectionID">677</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">menuMultiAdd:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="510805079"/>
+					</object>
+					<int key="connectionID">679</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1765,6 +1782,7 @@
 							<reference ref="623718391"/>
 							<reference ref="418239496"/>
 							<reference ref="860898925"/>
+							<reference ref="510805079"/>
 						</object>
 						<reference key="parent" ref="379814623"/>
 					</object>
@@ -2504,6 +2522,11 @@
 						<reference key="object" ref="860898925"/>
 						<reference key="parent" ref="720053764"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">678</int>
+						<reference key="object" ref="510805079"/>
+						<reference key="parent" ref="720053764"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2700,6 +2723,7 @@
 					<string>662.IBPluginDependency</string>
 					<string>665.IBPluginDependency</string>
 					<string>676.IBPluginDependency</string>
+					<string>678.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>73.ImportedFromIB2</string>
 					<string>79.IBPluginDependency</string>
@@ -2812,7 +2836,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{383, 736}, {414, 20}}</string>
+					<string>{{369, 1069}, {414, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{74, 862}</string>
@@ -2914,10 +2938,11 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{479, 603}, {151, 133}}</string>
+					<string>{{465, 916}, {210, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
@@ -2945,7 +2970,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">677</int>
+			<int key="maxID">679</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2961,6 +2986,7 @@
 							<string>listSelected:</string>
 							<string>menuDeleteTask:</string>
 							<string>menuDueDate:</string>
+							<string>menuMultiAdd:</string>
 							<string>menuPostponeTask:</string>
 							<string>menuPriority:</string>
 							<string>menuSearch:</string>
@@ -2970,6 +2996,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

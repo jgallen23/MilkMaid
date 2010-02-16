@@ -13,11 +13,13 @@
 #import "YRKSpinningProgressIndicator.h"
 #import "AddTaskWindowController.h"
 #import "SearchWindowController.h"
+#import "MultiAddWindowController.h"
 
 @interface MilkMaidAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
     NSWindow *window;
 	AddTaskWindowController *addTaskWindowController;
 	SearchWindowController *searchWindowController;
+	MultiAddWindowController *multiAddWindowController;
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;
 	NSDictionary *currentList;
@@ -43,4 +45,5 @@
 -(IBAction)menuPostponeTask:(id)sender;
 -(IBAction)menuDeleteTask:(id)sender;
 -(IBAction)menuSearch:(id)sender;
+-(IBAction)menuMultiAdd:(id)sender;
 @end

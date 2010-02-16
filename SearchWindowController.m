@@ -20,6 +20,7 @@
 }
 
 -(void)cancelClicked:(id)sender {
+	[searchField setStringValue:@""];
 	[NSApp endSheet:[self window] returnCode:0];
 }
 

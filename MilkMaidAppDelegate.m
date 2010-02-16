@@ -292,6 +292,26 @@
 	[progress setHidden:YES];
 }
 
+-(void)addTasks:(NSArray*)newTasks {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSString *timeline = [rtmController timeline];
+	for (NSString *t in newTasks) {
+		
+		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, t, @"1", nil] 
+																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
+		if (currentList) {
+			[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
+		}
+		[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
+		
+	}
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+
+}
+
 -(void)showLists:(id)sender {
 	[listPopUp performClick:self];
 }
@@ -398,6 +418,23 @@
 		[currentSearch retain];
 		[listPopUp selectItemAtIndex:0];
 		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
+	}
+	
+}
+
+-(void)menuMultiAdd:(id)sender {
+	if (!multiAddWindowController)
+		multiAddWindowController = [[MultiAddWindowController alloc] initWithWindowNibName:@"MultiAdd"];
+	NSWindow *sheet = [multiAddWindowController window];
+	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
+	   didEndSelector:@selector(closeMultiAddSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(void)closeMultiAddSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		NSArray *newTasks = [multiAddWindowController tasks];
+		[NSThread detachNewThreadSelector:@selector(addTasks:) toTarget:self withObject:newTasks];
 	}
 	
 }
