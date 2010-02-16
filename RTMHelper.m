@@ -98,12 +98,9 @@ static int compare(id obj1, id obj2, void *context) {
 		for (NSDictionary *taskSeries in taskSeriesListReversed) {
 			NSDictionary *t = [taskSeries objectForKey:@"task"];
 			id *due;
-			NSLog(@"%@", [t objectForKey:@"due"]);
 			if (![[t objectForKey:@"due"] isEqualToString:@""]) {
 				NSString *dueDate = [[t objectForKey:@"due"] substringToIndex:10];
 				due = [NSDate dateWithDateString:dueDate];
-				NSLog(@"%@", dueDate);
-				NSLog(@"%@", due);
 			} else {
 				due = @"";
 			}
@@ -117,7 +114,7 @@ static int compare(id obj1, id obj2, void *context) {
 		}
 	}
 	
-	NSLog(@"%@", tasks);
+	//NSLog(@"%@", tasks);
 	return [self sortTasks:tasks];
 }
 

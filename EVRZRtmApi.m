@@ -215,6 +215,7 @@ NSComparisonResult sortParameterKeys(NSString* string1, NSString* string2, void 
   // Checking that last API call was made more than a second ago & if not - waiting for a second (RTM recomendations)
   if (lastApiCall && (([lastApiCall timeIntervalSinceNow] * -1.0) < 1.0))
   {
+	  NSLog(@"delay");
     [NSThread sleepForTimeInterval:1.0 - ([lastApiCall timeIntervalSinceNow] * -1)];
   }
 

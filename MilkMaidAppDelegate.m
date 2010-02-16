@@ -37,9 +37,9 @@
 	if (token) {
 		rtmController.token = token;
 		NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.auth.checkToken" andParameters:[[NSDictionary alloc]init] withToken:YES];
-		NSLog(@"%@", [data objectForKey:@"stat"]);
 		if ([[data objectForKey:@"stat"] isEqualToString:@"ok"]) {
-			NSLog(@"Token Good");
+			timeline = [rtmController timeline];
+			[timeline retain];
 			[self performSelectorOnMainThread:@selector(getLists) withObject:nil waitUntilDone:NO];
 		} else {
 			[self getAuthToken];
@@ -71,7 +71,6 @@
 		NSString *token = [rtmController tokenWithFrob:frob];
 		rtmController.token = token;
 		[[NSUserDefaults standardUserDefaults] setObject:token forKey:TOKEN];
-		NSLog(@"%@", token);
 		[self performSelectorOnMainThread:@selector(getLists) withObject:nil waitUntilDone:NO];
 		//[self doneLoading];
 		
@@ -95,6 +94,7 @@
 	for (NSDictionary *list in listToRemove) {
 		[lists removeObject:list];
 	}
+	[listToRemove release];
 	[lists retain];
 	//[data release];
 	[pool release];
@@ -111,7 +111,7 @@
 }
 
 -(void)listSelected:(id)sender {
-	NSLog(@"selected");
+
 	NSInteger selectedIndex = [listPopUp indexOfSelectedItem];
 	selectedIndex--;
 	if (selectedIndex != -1 && [currentList objectForKey:@"id"] != [[lists objectAtIndex:selectedIndex] objectForKey:@"id"]) {
@@ -119,7 +119,6 @@
 		[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
 		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 		
-		NSLog(@"%@", currentList);
 		[currentList retain];
 	}
 }
@@ -145,6 +144,7 @@
 	[self performSelectorOnMainThread:@selector(loadTaskData) withObject:nil waitUntilDone:NO];
 	
 	[tasks retain];
+	[rtmHelper release];
 	[pool release];
 	[progress setHidden:YES];
 }
@@ -152,7 +152,7 @@
 -(void)searchTasks:(NSString*)searchString {
 	[progress setHidden:NO];
 	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
-	NSLog(@"%@", newSearch);
+
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:newSearch, nil] 
 														 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
@@ -239,10 +239,9 @@
 				
 -(void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	NSDictionary *task = [tasks objectAtIndex:row];
-	NSLog(@"%@", task);
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", nil]];
-	NSLog(@"%@", params);
+
 	[tasks removeObject:task];
 	[NSThread detachNewThreadSelector:@selector(completeTask:) toTarget:self withObject:params];
 	[self loadTaskData];
@@ -252,17 +251,15 @@
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.complete" andParameters:taskInfo withToken:YES];
-	NSLog(@"%@", data);
 	[pool release];
 	[progress setHidden:YES];
 }
 
 -(void)showAddTask:(id)sender {
-	NSLog(@"new task");
+
 	if (!addTaskWindowController)
 		addTaskWindowController = [[AddTaskWindowController alloc] initWithWindowNibName:@"AddTask"];
 	NSWindow *sheet = [addTaskWindowController window];
-	NSLog(@"%@", sheet);
 	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
 	   didEndSelector:@selector(closeAddTaskSheet:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -280,7 +277,7 @@
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], task, @"1", nil] 
+	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
 	if (currentList) {
 		[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
@@ -295,7 +292,6 @@
 -(void)addTasks:(NSArray*)newTasks {
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSString *timeline = [rtmController timeline];
 	for (NSString *t in newTasks) {
 		
 		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, t, @"1", nil] 
@@ -322,7 +318,7 @@
 		return;
 	NSDictionary *task = [tasks objectAtIndex:rowIndex];
 	
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], [sender title], nil] 
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], [sender title], nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"priority", nil]];
 	[NSThread detachNewThreadSelector:@selector(setPriority:) toTarget:self withObject:params];
 }
@@ -343,7 +339,7 @@
 		return;
 	NSDictionary *task = [tasks objectAtIndex:rowIndex];
 	
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], [sender title], @"1", nil] 
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], [sender title], @"1", nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"due", @"parse", nil]];
 	[NSThread detachNewThreadSelector:@selector(setDueDate:) toTarget:self withObject:params];
 }
@@ -364,7 +360,7 @@
 		return;
 	NSDictionary *task = [tasks objectAtIndex:rowIndex];
 	
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", nil]];
 	[NSThread detachNewThreadSelector:@selector(postponeTask:) toTarget:self withObject:params];
 }
@@ -385,7 +381,7 @@
 		return;
 	NSDictionary *task = [tasks objectAtIndex:rowIndex];
 	
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
+	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], nil] 
 														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", nil]];
 	[NSThread detachNewThreadSelector:@selector(deleteTask:) toTarget:self withObject:params];
 }
@@ -401,11 +397,9 @@
 }
 
 -(void)menuSearch:(id)sender {
-	NSLog(@"new task");
 	if (!searchWindowController)
 		searchWindowController = [[SearchWindowController alloc] initWithWindowNibName:@"Search"];
 	NSWindow *sheet = [searchWindowController window];
-	NSLog(@"%@", sheet);
 	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
 	   didEndSelector:@selector(closeSearchSheet:returnCode:contextInfo:) contextInfo:nil];
 }

@@ -25,6 +25,7 @@
 	NSDictionary *currentList;
 	NSString *currentSearch;
 	NSMutableArray *tasks;
+	NSString *timeline;
 	IBOutlet BWTransparentPopUpButton *listPopUp;
 	IBOutlet BWTransparentTableView *taskTable;
 
