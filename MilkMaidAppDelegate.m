@@ -123,8 +123,15 @@
 		[currentList retain];
 	}
 }
-
 -(void)getTasks {
+	if (currentList) {
+		[self getTasksFromCurrentList];
+	} else {
+		[self searchTasks:currentSearch];
+	}
+
+}
+-(void)getTasksFromCurrentList {
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[currentList objectForKey:@"id"], @"status:incomplete", nil] 
@@ -145,6 +152,7 @@
 -(void)searchTasks:(NSString*)searchString {
 	[progress setHidden:NO];
 	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
+	NSLog(@"%@", newSearch);
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:newSearch, nil] 
 														 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
@@ -271,8 +279,12 @@
 -(void)addTask:(NSString*)task {
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], [currentList objectForKey:@"id"], task, @"1", nil] 
-														 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id",@"name", @"parse", nil]];
+
+	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[rtmController timeline], task, @"1", nil] 
+														 forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
+	if (currentList) {
+		[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
+	}
 	[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
 	
 	[self getTasks];
@@ -383,6 +395,7 @@
 	if (returnCode == 1) {
 		currentSearch = [searchWindowController searchString];
 		currentList = nil;
+		[currentSearch retain];
 		[listPopUp selectItemAtIndex:0];
 		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
 	}
