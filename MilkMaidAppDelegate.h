@@ -28,6 +28,9 @@
 	NSString *timeline;
 	IBOutlet BWTransparentPopUpButton *listPopUp;
 	IBOutlet BWTransparentTableView *taskTable;
+	NSImage *priority1Image;
+	NSImage *priority2Image;
+	NSImage *priority3Image;
 
 	IBOutlet YRKSpinningProgressIndicator *progress;
 	

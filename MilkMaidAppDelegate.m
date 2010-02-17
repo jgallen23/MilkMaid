@@ -18,6 +18,10 @@
 	NSString *apiKey = @"1734ba9431007c2242b6865a69940aa5";
 	NSString *secret = @"72d1c12ffb26e759";
 	
+	priority1Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority1" ofType:@"png"]];
+	priority2Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority2" ofType:@"png"]];
+	priority3Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority3" ofType:@"png"]];
+	
 	[progress setForeColor:[NSColor whiteColor]];
 	[progress startAnimation:nil];
 	
@@ -183,37 +187,6 @@
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	return [tasks count];
 }
-								
--(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	//check type of cell
-	id cell = [tableColumn dataCellForRow:row];
-	if ([cell isMemberOfClass:[BWTransparentCheckboxCell class]]) {
-		return [NSNumber numberWithInteger:NSOffState];
-	} else {//if ([cell isMemberOfClass:[BWTransparentTableViewCell class]]) {
-		NSDictionary *task = [tasks objectAtIndex:row];
-		
-		NSString *pri = [task objectForKey:@"priority"];
-		if ([pri isEqualToString:@"1"]) {
-			[cell setTextColor:[[self class] colorFromHexRGB:@"EA5200"]];
-		} else if ([pri isEqualToString:@"2"]) {
-			[cell setTextColor:[[self class] colorFromHexRGB:@"0060BF"]];
-		} else if ([pri isEqualToString:@"3"]) {
-			[cell setTextColor:[[self class] colorFromHexRGB:@"359AFF"]];
-		} else {
-			[cell setTextColor:[NSColor whiteColor]];
-		}
-
-		id due = [task objectForKey:@"due"];
-		if ([due isKindOfClass:[NSDate class]] && ([due isPastDate] || [[NSDate date] isEqualToDate:due])) {
-			[cell setBold:YES];
-		} else {
-			[cell setBold:NO];
-		}
-
-		return [task objectForKey:@"name"];
-	}
-	
-}
 
 + (NSColor *) colorFromHexRGB:(NSString *) inColorString
 {
@@ -236,6 +209,46 @@
 			  alpha:1.0];
 	return result;
 }
+								
+-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	//check type of cell
+	
+	id cell = [tableColumn dataCellForRow:row];
+	//NSLog(@"%@", cell);
+	if ([cell isMemberOfClass:[BWTransparentCheckboxCell class]]) {
+		return [NSNumber numberWithInteger:NSOffState];
+	} else if ([cell isMemberOfClass:[NSImageCell class]]) {
+		NSDictionary *task = [tasks objectAtIndex:row];
+		NSString *pri = [task objectForKey:@"priority"];
+		if ([pri isEqualToString:@"1"]) {
+			return priority1Image;
+		} else if ([pri isEqualToString:@"2"]) {
+			return priority2Image;
+		} else if ([pri isEqualToString:@"3"]) {
+			return priority3Image;
+		} else {
+			return nil;
+		}
+	} else {//if ([cell isMemberOfClass:[BWTransparentTableViewCell class]]) {
+		NSDictionary *task = [tasks objectAtIndex:row];
+		
+
+		[cell setTextColor:[NSColor whiteColor]];
+		
+
+		id due = [task objectForKey:@"due"];
+		if ([due isKindOfClass:[NSDate class]] && ([due isPastDate] || [[NSDate date] isEqualToDate:due])) {
+			[cell setBold:YES];
+		} else {
+			[cell setBold:NO];
+		}
+
+		return [task objectForKey:@"name"];
+	}
+	
+}
+
+
 				
 -(void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	NSDictionary *task = [tasks objectAtIndex:row];
