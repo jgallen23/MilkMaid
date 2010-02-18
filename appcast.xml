@@ -6,23 +6,20 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.4</title>
-            <pubDate>Mon, 16 Feb 2010 8:00:00 +0000</pubDate>
+            <title>Version 0.5</title>
+            <pubDate>Mon, 18 Feb 2010 8:00:00 +0000</pubDate>
 			<description><![CDATA[
-				<h2>Features</h2>
+				<h3>Features</h3>
 				<ul>
-					<li>MultiAdd - add multiple tasks at once (cmd-m)</li>
-					<li>Set due today hotkey (cmd-t)</li>
-					<li>Delete task hotkey (del)</li>
+					<li>Show Priority as icon rather than text color</li>
+					<li>Show tags and due date</li>
 				</ul>
-				<h2>Bug Fixes</h2>
+				<h3>Bug Fixes</h3>
 				<ul>
-					<li>Issue when adding tasks after searching</li>
-					<li>Issue with sorting tasks - sorted by due date now</li>
-					<li>Issue when deleting tasks</li>
+					<li>Performance Tweaks</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.4.tar.gz" sparkle:version="0.4" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFEPbiz6mMS0NsxxW1lG/mtkXqshIAhR8uYxP/YdMshL/s3BzThvbfGWmaw==" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.5.tar.gz" sparkle:version="0.5" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFFEMV8cte9w/cpawePcXdAMeTLrLAhUAi3maCaWDNV64IuhWfiegYpq0zis=" />
          </item>
    </channel>
 </rss>
