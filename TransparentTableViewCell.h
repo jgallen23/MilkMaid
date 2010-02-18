@@ -13,6 +13,8 @@
 	BOOL mIsEditingOrSelecting;
 	BOOL customTextColor;
 	BOOL shouldBold;
+	NSString *altText;
+	NSString *alt2Text;
 }
 
 

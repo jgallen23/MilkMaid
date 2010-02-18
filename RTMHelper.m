@@ -104,12 +104,21 @@ static int compare(id obj1, id obj2, void *context) {
 			} else {
 				due = @"";
 			}
-
-
+			NSString *tags = @"";
+			id *tagNode = [taskSeries objectForKey:@"tags"];
+			if ([tagNode isKindOfClass:[NSDictionary class]]) {
+				id *tn = [tagNode objectForKey:@"tag"];
+				
+				if ([tn isKindOfClass:[NSArray class]]) {
+					tags = [tn componentsJoinedByString:@","];
+				} else {
+					tags = tn;
+				}
+			}
 
 			NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[list objectForKey:@"id"], [taskSeries objectForKey:@"id"], 
-																	  [t objectForKey:@"id"], [taskSeries objectForKey:@"name"], [t objectForKey:@"priority"], due ,nil] 
-															 forKeys:[NSArray arrayWithObjects:@"list_id", @"taskseries_id", @"task_id", @"name", @"priority", @"due", nil]];
+																	  [t objectForKey:@"id"], [taskSeries objectForKey:@"name"], [t objectForKey:@"priority"], due , tags, nil] 
+															 forKeys:[NSArray arrayWithObjects:@"list_id", @"taskseries_id", @"task_id", @"name", @"priority", @"due", @"tags", nil]];
 			[tasks addObject:task];
 		}
 	}
@@ -130,6 +139,28 @@ static int compare(id obj1, id obj2, void *context) {
 	} else {
 		return [NSArray arrayWithObject:obj];
 	}
+}
+
++ (NSColor *) colorFromHexRGB:(NSString *) inColorString
+{
+	NSColor *result = nil;
+	unsigned int colorCode = 0;
+	unsigned char redByte, greenByte, blueByte;
+	
+	if (nil != inColorString)
+	{
+		NSScanner *scanner = [NSScanner scannerWithString:inColorString];
+		(void) [scanner scanHexInt:&colorCode];	// ignore error
+	}
+	redByte		= (unsigned char) (colorCode >> 16);
+	greenByte	= (unsigned char) (colorCode >> 8);
+	blueByte	= (unsigned char) (colorCode);	// masks off high bits
+	result = [NSColor
+			  colorWithCalibratedRed:		(float)redByte	/ 0xff
+			  green:	(float)greenByte/ 0xff
+			  blue:	(float)blueByte	/ 0xff
+			  alpha:1.0];
+	return result;
 }
 
 @end

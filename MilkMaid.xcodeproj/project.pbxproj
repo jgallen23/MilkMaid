@@ -33,6 +33,9 @@
 		C9A02F2C111BF11F00ACBFE1 /* NSDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */; };
 		C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */; };
 		C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */ = {isa = PBXBuildFile; fileRef = C9AF203D1116A44D00BC2280 /* rtm.icns */; };
+		C9F45ECC112B727E00F48377 /* priority1.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F45ECB112B727D00F48377 /* priority1.png */; };
+		C9F45EDE112B74E100F48377 /* priority2.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F45EDC112B74E100F48377 /* priority2.png */; };
+		C9F45EDF112B74E100F48377 /* priority3.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F45EDD112B74E100F48377 /* priority3.png */; };
 		C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */; };
 		C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FBE61E1123D73300115FFF /* AddTask.xib */; };
 		C9FBE6251123D98600115FFF /* AddTaskWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE6241123D98600115FFF /* AddTaskWindowController.m */; };
@@ -97,6 +100,9 @@
 		C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentTableViewCell.m; sourceTree = "<group>"; };
 		C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentTableViewCell.h; sourceTree = "<group>"; };
 		C9AF203D1116A44D00BC2280 /* rtm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rtm.icns; sourceTree = "<group>"; };
+		C9F45ECB112B727D00F48377 /* priority1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = priority1.png; sourceTree = "<group>"; };
+		C9F45EDC112B74E100F48377 /* priority2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = priority2.png; sourceTree = "<group>"; };
+		C9F45EDD112B74E100F48377 /* priority3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = priority3.png; sourceTree = "<group>"; };
 		C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
 		C9FBE61E1123D73300115FFF /* AddTask.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTask.xib; sourceTree = "<group>"; };
@@ -196,6 +202,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C9F45ECB112B727D00F48377 /* priority1.png */,
+				C9F45EDC112B74E100F48377 /* priority2.png */,
+				C9F45EDD112B74E100F48377 /* priority3.png */,
 				C927F87A1120FC1B00EA191B /* rtm2.icns */,
 				76F79642111DD45900FD7EFB /* dsa_pub.pem */,
 				C9AF203D1116A44D00BC2280 /* rtm.icns */,
@@ -293,6 +302,9 @@
 				C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */,
 				7693DFF21125B27900DDF1A1 /* Search.xib in Resources */,
 				767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */,
+				C9F45ECC112B727E00F48377 /* priority1.png in Resources */,
+				C9F45EDE112B74E100F48377 /* priority2.png in Resources */,
+				C9F45EDF112B74E100F48377 /* priority3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +407,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -407,7 +419,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

@@ -7,40 +7,43 @@
 //
 
 #import "TransparentTableViewCell.h"
-
+#import "RTMHelper.h"
 
 
 @implementation TransparentTableViewCell
 
-- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
-{
-	if (![[self title] isEqualToString:@""])
-	{
-		NSColor *textColor;
-		if (!self.isHighlighted)
-			textColor = [NSColor colorWithCalibratedWhite:(198.0f / 255.0f) alpha:1];
-		else
-			textColor = [NSColor whiteColor];
-		
-		NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
-		[attributes addEntriesFromDictionary:[[self attributedStringValue] attributesAtIndex:0 effectiveRange:NULL]];
-		if (!customTextColor) {
-			[attributes setObject:textColor forKey:NSForegroundColorAttributeName];
-		}
-		if (shouldBold) {
-			[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
-		} else {
-			[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
-		}
-
-		
-		NSMutableAttributedString *string = [[[NSMutableAttributedString alloc] initWithString:[self title] attributes:attributes] autorelease];
-		[self setAttributedStringValue:string];
+-(void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+	
+	NSColor* primaryColor   = [self isHighlighted] ? [NSColor whiteColor] : [NSColor colorWithCalibratedWhite:(225.0f / 255.0f) alpha:1];
+	NSString* primaryText   = [self title];
+	
+	int y = ([altText isEqualToString:@""] || [alt2Text isEqualToString:@""]) ? cellFrame.origin.y : cellFrame.origin.y+cellFrame.size.height/5;
+	NSMutableDictionary* primaryTextAttributes = [NSMutableDictionary dictionaryWithObjectsAndKeys: primaryColor, NSForegroundColorAttributeName, nil];	
+	if (shouldBold) {
+		[primaryTextAttributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+	} else {
+		[primaryTextAttributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+	}
+	[primaryText drawAtPoint:NSMakePoint(cellFrame.origin.x, y) withAttributes:primaryTextAttributes];
+	
+	
+	//#0060BF
+	if (![altText isEqualToString:@""]) {
+		NSColor* secondaryColor = [self isHighlighted] ? [NSColor colorWithCalibratedWhite:(198.0f / 255.0f) alpha:1] : [NSColor disabledControlTextColor];
+		NSDictionary* secondaryTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys: secondaryColor, NSForegroundColorAttributeName,
+												 [NSFont systemFontOfSize:9], NSFontAttributeName, nil];	
+		[altText drawAtPoint:NSMakePoint(cellFrame.origin.x, cellFrame.origin.y+cellFrame.size.height/2) 
+					withAttributes:secondaryTextAttributes];
 	}
 	
-	cellFrame.size.width -= 1;
-	cellFrame.origin.x += 1;
-	[super drawInteriorWithFrame:cellFrame inView:controlView];
+	if (![alt2Text isEqualToString:@""]) {
+		NSColor* secondaryColor = [self isHighlighted] ? [NSColor colorWithCalibratedWhite:(198.0f / 255.0f) alpha:1] : [NSColor disabledControlTextColor];
+		NSDictionary* secondaryTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys: secondaryColor, NSForegroundColorAttributeName,
+												 [NSFont systemFontOfSize:9], NSFontAttributeName, nil];	
+		NSSize size = [alt2Text sizeWithAttributes:secondaryTextAttributes];
+		[alt2Text drawAtPoint:NSMakePoint(cellFrame.origin.x + cellFrame.size.width - size.width, cellFrame.origin.y+cellFrame.size.height/2) 
+			  withAttributes:secondaryTextAttributes];
+	}
 }
 
 #pragma mark RSVerticallyCenteredTextFieldCell
@@ -97,6 +100,16 @@
 
 - (void)setBold:(BOOL)bold {
 	shouldBold = bold;
+}
+
+- (void)setAlternateText:(NSString*)text {
+	altText = text;
+	[altText retain];
+}
+
+- (void)setAlternate2Text:(NSString *)text {
+	alt2Text = text;
+	[alt2Text retain];
 }
 
 @end

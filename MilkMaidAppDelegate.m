@@ -188,27 +188,7 @@
 	return [tasks count];
 }
 
-+ (NSColor *) colorFromHexRGB:(NSString *) inColorString
-{
-	NSColor *result = nil;
-	unsigned int colorCode = 0;
-	unsigned char redByte, greenByte, blueByte;
-	
-	if (nil != inColorString)
-	{
-		NSScanner *scanner = [NSScanner scannerWithString:inColorString];
-		(void) [scanner scanHexInt:&colorCode];	// ignore error
-	}
-	redByte		= (unsigned char) (colorCode >> 16);
-	greenByte	= (unsigned char) (colorCode >> 8);
-	blueByte	= (unsigned char) (colorCode);	// masks off high bits
-	result = [NSColor
-			  colorWithCalibratedRed:		(float)redByte	/ 0xff
-			  green:	(float)greenByte/ 0xff
-			  blue:	(float)blueByte	/ 0xff
-			  alpha:1.0];
-	return result;
-}
+
 								
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	//check type of cell
@@ -232,17 +212,21 @@
 	} else {//if ([cell isMemberOfClass:[BWTransparentTableViewCell class]]) {
 		NSDictionary *task = [tasks objectAtIndex:row];
 		
-
-		[cell setTextColor:[NSColor whiteColor]];
-		
-
 		id due = [task objectForKey:@"due"];
-		if ([due isKindOfClass:[NSDate class]] && ([due isPastDate] || [[NSDate date] isEqualToDate:due])) {
-			[cell setBold:YES];
+		if ([due isKindOfClass:[NSDate class]]) {
+			[cell setAlternate2Text:[due relativeFormattedDateOnly]];
+			if ([due isPastDate] || [[NSDate date] isEqualToDate:due]) {
+				[cell setBold:YES];
+			} else {
+				[cell setBold:NO];
+			}
 		} else {
-			[cell setBold:NO];
+			[cell setAlternate2Text:@""];
 		}
 
+		
+		[cell setAlternateText:[task objectForKey:@"tags"]];
+		
 		return [task objectForKey:@"name"];
 	}
 	

@@ -1010,8 +1010,8 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="625209997">
-													<double key="NSWidth">40</double>
-													<double key="NSMinWidth">40</double>
+													<double key="NSWidth">20</double>
+													<double key="NSMinWidth">20</double>
 													<double key="NSMaxWidth">1000</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
@@ -1096,7 +1096,7 @@
 													<reference key="NSTableView" ref="1010431952"/>
 												</object>
 												<object class="NSTableColumn" id="385279558">
-													<double key="NSWidth">166</double>
+													<double key="NSWidth">175</double>
 													<double key="NSMinWidth">10</double>
 													<double key="NSMaxWidth">3.4028234663852886e+38</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -1152,7 +1152,7 @@
 													<bytes key="NSWhite">MC41AA</bytes>
 												</object>
 											</object>
-											<double key="NSRowHeight">20</double>
+											<double key="NSRowHeight">25</double>
 											<int key="NSTvFlags">381681664</int>
 											<reference key="NSDelegate"/>
 											<reference key="NSDataSource"/>
@@ -1201,7 +1201,7 @@
 							<reference key="NSVScroller" ref="646975129"/>
 							<reference key="NSHScroller" ref="1064800039"/>
 							<reference key="NSContentView" ref="281667900"/>
-							<bytes key="NSScrollAmts">QSAAAEEgAABBsAAAQbAAAA</bytes>
+							<bytes key="NSScrollAmts">QSAAAEEgAABB2AAAQdgAAA</bytes>
 						</object>
 						<object class="NSCustomView" id="746587900">
 							<reference key="NSNextResponder" ref="625837263"/>
@@ -2564,7 +2564,7 @@
 						<reference key="parent" ref="1052006821"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">685</int>
+						<int key="objectID">689</int>
 						<reference key="object" ref="623777842"/>
 						<reference key="parent" ref="385279558"/>
 					</object>
@@ -2763,9 +2763,10 @@
 					<string>665.IBPluginDependency</string>
 					<string>676.IBPluginDependency</string>
 					<string>678.IBPluginDependency</string>
+					<string>680.IBPluginDependency</string>
 					<string>684.IBPluginDependency</string>
-					<string>685.CustomClassName</string>
-					<string>685.IBPluginDependency</string>
+					<string>689.CustomClassName</string>
+					<string>689.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>73.ImportedFromIB2</string>
 					<string>79.IBPluginDependency</string>
@@ -2979,6 +2980,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>TransparentTableViewCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3013,7 +3015,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">685</int>
+			<int key="maxID">689</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
