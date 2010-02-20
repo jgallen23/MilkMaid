@@ -24,6 +24,8 @@
 }
 
 -(void)cancelClicked:(id)sender {
+	NSTextView *textView = [scrollTextView documentView];
+	[textView setString:@""];
 	[NSApp endSheet:[self window] returnCode:0];
 }
 
