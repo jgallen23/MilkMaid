@@ -6,20 +6,26 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.5</title>
-            <pubDate>Mon, 18 Feb 2010 8:00:00 +0000</pubDate>
+            <title>Version 0.6</title>
+            <pubDate>Sat, 20 Feb 2010 8:00:00 +0000</pubDate>
 			<description><![CDATA[
 				<h3>Features</h3>
 				<ul>
-					<li>Show Priority as icon rather than text color</li>
-					<li>Show tags and due date</li>
+					<li>Support for 10.5</li>
+					<li>MultiAdd window is now larger</li>
+					<li>Cmd-Return inside MultiAdd will Add Tasks</li>
 				</ul>
 				<h3>Bug Fixes</h3>
 				<ul>
-					<li>Performance Tweaks</li>
+					<li>Fixed crashing issue trying to display certain tasks</li>
+					<li>Scroll to top of list when changing</li>
+					<li>Clear MultiAdd on cancel</li>
+					<li>Fixed tasks were bold when they shouldn't be</li>
+					<li>Fixed display issue if a task had a tag and a date</li>
+					<li>Hide app badge if task count is 0</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.5.tar.gz" sparkle:version="0.5" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFFEMV8cte9w/cpawePcXdAMeTLrLAhUAi3maCaWDNV64IuhWfiegYpq0zis=" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.6.tar.gz" sparkle:version="0.6" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MCwCFAIrY0DeVDUhn+A1AZACPPuUaaiHAhRc+ltCORUkpVh53ll4w3PSigtZNQ==" />
          </item>
    </channel>
 </rss>
