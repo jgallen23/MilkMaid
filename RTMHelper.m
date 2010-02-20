@@ -89,37 +89,43 @@ static int compare(id obj1, id obj2, void *context) {
 	
 	if (![taskList objectForKey:@"list"])
 		return tasks;
-	
+	NSLog(@"%@", taskList);
 	NSArray *listTasks = [self getArray:[[rtmResponse objectForKey:@"tasks"] objectForKey:@"list"]];
 
 	for (NSDictionary *list in listTasks) {
+		NSLog(@"%@", list);
 		NSArray *taskSeriesList = [self getArray:[list objectForKey:@"taskseries"]];
 		NSArray* taskSeriesListReversed = [[taskSeriesList reverseObjectEnumerator] allObjects];
 		for (NSDictionary *taskSeries in taskSeriesListReversed) {
-			NSDictionary *t = [taskSeries objectForKey:@"task"];
-			id *due;
-			if (![[t objectForKey:@"due"] isEqualToString:@""]) {
-				NSString *dueDate = [[t objectForKey:@"due"] substringToIndex:10];
-				due = [NSDate dateWithDateString:dueDate];
-			} else {
-				due = @"";
-			}
-			NSString *tags = @"";
-			id *tagNode = [taskSeries objectForKey:@"tags"];
-			if ([tagNode isKindOfClass:[NSDictionary class]]) {
-				id *tn = [tagNode objectForKey:@"tag"];
-				
-				if ([tn isKindOfClass:[NSArray class]]) {
-					tags = [tn componentsJoinedByString:@","];
-				} else {
-					tags = tn;
-				}
-			}
+			NSLog(@"%@", taskSeries);
+			
+			NSArray *taskArray = [self getArray:[taskSeries objectForKey:@"task"]];
+			for (NSDictionary *t in taskArray) {
 
-			NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[list objectForKey:@"id"], [taskSeries objectForKey:@"id"], 
-																	  [t objectForKey:@"id"], [taskSeries objectForKey:@"name"], [t objectForKey:@"priority"], due , tags, nil] 
-															 forKeys:[NSArray arrayWithObjects:@"list_id", @"taskseries_id", @"task_id", @"name", @"priority", @"due", @"tags", nil]];
-			[tasks addObject:task];
+				id *due;
+				if (![[t objectForKey:@"due"] isEqualToString:@""]) {
+					NSString *dueDate = [[t objectForKey:@"due"] substringToIndex:10];
+					due = [NSDate dateWithDateString:dueDate];
+				} else {
+					due = @"";
+				}
+				NSString *tags = @"";
+				id *tagNode = [taskSeries objectForKey:@"tags"];
+				if ([tagNode isKindOfClass:[NSDictionary class]]) {
+					id *tn = [tagNode objectForKey:@"tag"];
+					
+					if ([tn isKindOfClass:[NSArray class]]) {
+						tags = [tn componentsJoinedByString:@","];
+					} else {
+						tags = tn;
+					}
+				}
+
+				NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[list objectForKey:@"id"], [taskSeries objectForKey:@"id"], 
+																		  [t objectForKey:@"id"], [taskSeries objectForKey:@"name"], [t objectForKey:@"priority"], due , tags, nil] 
+																 forKeys:[NSArray arrayWithObjects:@"list_id", @"taskseries_id", @"task_id", @"name", @"priority", @"due", @"tags", nil]];
+				[tasks addObject:task];
+			}
 		}
 	}
 	
