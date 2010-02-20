@@ -121,6 +121,7 @@
 	if (selectedIndex != -1 && [currentList objectForKey:@"id"] != [[lists objectAtIndex:selectedIndex] objectForKey:@"id"]) {
 		currentList = [lists objectAtIndex:selectedIndex];
 		[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
+		[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
 		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 		
 		[currentList retain];
@@ -186,6 +187,7 @@
 		[[[NSApplication sharedApplication] dockTile] setBadgeLabel:@""];
 	}
 	[taskTable reloadData];
+	
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {

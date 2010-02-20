@@ -28,6 +28,7 @@
 	NSString *timeline;
 	IBOutlet BWTransparentPopUpButton *listPopUp;
 	IBOutlet BWTransparentTableView *taskTable;
+	IBOutlet BWTransparentScrollView *taskScroll;
 	NSImage *priority1Image;
 	NSImage *priority2Image;
 	NSImage *priority3Image;
