@@ -180,7 +180,11 @@
 -(void)loadTaskData {
 	//NSLog(@"%@", tasks);
 	[window setTitle:[NSString stringWithFormat:@"MilkMaid (%d)", [tasks count]]];
-	[[[NSApplication sharedApplication] dockTile] setBadgeLabel:[[NSNumber numberWithInt:[tasks count]] stringValue]];
+	if ([tasks count] != 0) {
+		[[[NSApplication sharedApplication] dockTile] setBadgeLabel:[[NSNumber numberWithInt:[tasks count]] stringValue]];
+	} else {
+		[[[NSApplication sharedApplication] dockTile] setBadgeLabel:@""];
+	}
 	[taskTable reloadData];
 }
 
