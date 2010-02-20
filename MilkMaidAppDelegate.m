@@ -217,11 +217,10 @@
 			[cell setAlternate2Text:[due relativeFormattedDateOnly]];
 			if ([due isPastDate] || [[NSDate date] isEqualToDate:due]) {
 				[cell setBold:YES];
-			} else {
-				[cell setBold:NO];
-			}
+			} 
 		} else {
 			[cell setAlternate2Text:@""];
+			[cell setBold:NO];
 		}
 
 		
