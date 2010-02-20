@@ -17,7 +17,7 @@
 	NSColor* primaryColor   = [self isHighlighted] ? [NSColor whiteColor] : [NSColor colorWithCalibratedWhite:(225.0f / 255.0f) alpha:1];
 	NSString* primaryText   = [self title];
 	
-	int y = ([altText isEqualToString:@""] || [alt2Text isEqualToString:@""]) ? cellFrame.origin.y : cellFrame.origin.y+cellFrame.size.height/5;
+	int y = (![altText isEqualToString:@""] || ![alt2Text isEqualToString:@""]) ? cellFrame.origin.y : cellFrame.origin.y+cellFrame.size.height/5;
 	NSMutableDictionary* primaryTextAttributes = [NSMutableDictionary dictionaryWithObjectsAndKeys: primaryColor, NSForegroundColorAttributeName, nil];	
 	if (shouldBold) {
 		[primaryTextAttributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
