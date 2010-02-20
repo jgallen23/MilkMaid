@@ -15,7 +15,7 @@
 #import "SearchWindowController.h"
 #import "MultiAddWindowController.h"
 
-@interface MilkMaidAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
+@interface MilkMaidAppDelegate : NSObject {
     NSWindow *window;
 	AddTaskWindowController *addTaskWindowController;
 	SearchWindowController *searchWindowController;
