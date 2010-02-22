@@ -13,8 +13,6 @@
 		7619C0FA111C7C2700F075E9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7619C0C2111C7C1800F075E9 /* Sparkle.framework */; };
 		767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 767A8742112AF51E00A77326 /* MultiAdd.xib */; };
 		767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767A8757112AF58E00A77326 /* MultiAddWindowController.m */; };
-		7693DFF21125B27900DDF1A1 /* Search.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7693DFF11125B27900DDF1A1 /* Search.xib */; };
-		7693DFF71125B30700DDF1A1 /* SearchWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7693DFF61125B30700DDF1A1 /* SearchWindowController.m */; };
 		76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
 		76EA44561111652500E10B8A /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
 		76EA44A4111167A500E10B8A /* EVRZRtmApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44A3111167A500E10B8A /* EVRZRtmApi.m */; };
@@ -37,8 +35,8 @@
 		C9F45EDE112B74E100F48377 /* priority2.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F45EDC112B74E100F48377 /* priority2.png */; };
 		C9F45EDF112B74E100F48377 /* priority3.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F45EDD112B74E100F48377 /* priority3.png */; };
 		C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */; };
-		C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FBE61E1123D73300115FFF /* AddTask.xib */; };
-		C9FBE6251123D98600115FFF /* AddTaskWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE6241123D98600115FFF /* AddTaskWindowController.m */; };
+		C9FBE61F1123D73300115FFF /* SingleInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FBE61E1123D73300115FFF /* SingleInput.xib */; };
+		C9FBE6251123D98600115FFF /* SingleInputWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE6241123D98600115FFF /* SingleInputWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,9 +69,6 @@
 		767A8742112AF51E00A77326 /* MultiAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiAdd.xib; sourceTree = "<group>"; };
 		767A8756112AF58E00A77326 /* MultiAddWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiAddWindowController.h; sourceTree = "<group>"; };
 		767A8757112AF58E00A77326 /* MultiAddWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiAddWindowController.m; sourceTree = "<group>"; };
-		7693DFF11125B27900DDF1A1 /* Search.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Search.xib; sourceTree = "<group>"; };
-		7693DFF51125B30700DDF1A1 /* SearchWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWindowController.h; sourceTree = "<group>"; };
-		7693DFF61125B30700DDF1A1 /* SearchWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWindowController.m; sourceTree = "<group>"; };
 		76EA44511111650700E10B8A /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = ../../../lib/BWToolkit/BWToolkitFramework.framework; sourceTree = SOURCE_ROOT; };
 		76EA44A2111167A500E10B8A /* EVRZRtmApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVRZRtmApi.h; sourceTree = "<group>"; };
 		76EA44A3111167A500E10B8A /* EVRZRtmApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVRZRtmApi.m; sourceTree = "<group>"; };
@@ -105,9 +100,9 @@
 		C9F45EDD112B74E100F48377 /* priority3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = priority3.png; sourceTree = "<group>"; };
 		C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
-		C9FBE61E1123D73300115FFF /* AddTask.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTask.xib; sourceTree = "<group>"; };
-		C9FBE6231123D98600115FFF /* AddTaskWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskWindowController.h; sourceTree = "<group>"; };
-		C9FBE6241123D98600115FFF /* AddTaskWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskWindowController.m; sourceTree = "<group>"; };
+		C9FBE61E1123D73300115FFF /* SingleInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleInput.xib; sourceTree = "<group>"; };
+		C9FBE6231123D98600115FFF /* SingleInputWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleInputWindowController.h; sourceTree = "<group>"; };
+		C9FBE6241123D98600115FFF /* SingleInputWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleInputWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,10 +135,8 @@
 				C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */,
 				C9A02F2B111BF11F00ACBFE1 /* NSDateHelper.h */,
 				C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */,
-				C9FBE6231123D98600115FFF /* AddTaskWindowController.h */,
-				C9FBE6241123D98600115FFF /* AddTaskWindowController.m */,
-				7693DFF51125B30700DDF1A1 /* SearchWindowController.h */,
-				7693DFF61125B30700DDF1A1 /* SearchWindowController.m */,
+				C9FBE6231123D98600115FFF /* SingleInputWindowController.h */,
+				C9FBE6241123D98600115FFF /* SingleInputWindowController.m */,
 				767A8756112AF58E00A77326 /* MultiAddWindowController.h */,
 				767A8757112AF58E00A77326 /* MultiAddWindowController.m */,
 			);
@@ -211,8 +204,7 @@
 				8D1107310486CEB800E47090 /* MilkMaid-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
-				C9FBE61E1123D73300115FFF /* AddTask.xib */,
-				7693DFF11125B27900DDF1A1 /* Search.xib */,
+				C9FBE61E1123D73300115FFF /* SingleInput.xib */,
 				767A8742112AF51E00A77326 /* MultiAdd.xib */,
 			);
 			name = Resources;
@@ -299,8 +291,7 @@
 				C9AF203E1116A44D00BC2280 /* rtm.icns in Resources */,
 				76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */,
 				C927F87B1120FC1B00EA191B /* rtm2.icns in Resources */,
-				C9FBE61F1123D73300115FFF /* AddTask.xib in Resources */,
-				7693DFF21125B27900DDF1A1 /* Search.xib in Resources */,
+				C9FBE61F1123D73300115FFF /* SingleInput.xib in Resources */,
 				767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */,
 				C9F45ECC112B727E00F48377 /* priority1.png in Resources */,
 				C9F45EDE112B74E100F48377 /* priority2.png in Resources */,
@@ -328,8 +319,7 @@
 				C9F70849111653CE00D3BB5B /* YRKSpinningProgressIndicator.m in Sources */,
 				C9AF1F771116999500BC2280 /* TransparentTableViewCell.m in Sources */,
 				C9A02F2C111BF11F00ACBFE1 /* NSDateHelper.m in Sources */,
-				C9FBE6251123D98600115FFF /* AddTaskWindowController.m in Sources */,
-				7693DFF71125B30700DDF1A1 /* SearchWindowController.m in Sources */,
+				C9FBE6251123D98600115FFF /* SingleInputWindowController.m in Sources */,
 				767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

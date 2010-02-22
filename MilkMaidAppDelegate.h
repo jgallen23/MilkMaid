@@ -11,14 +11,12 @@
 #import <BWToolkitFramework/BWToolkitFramework.h>
 #import "RTMHelper.h"
 #import "YRKSpinningProgressIndicator.h"
-#import "AddTaskWindowController.h"
-#import "SearchWindowController.h"
+#import "SingleInputWindowController.h"
 #import "MultiAddWindowController.h"
 
 @interface MilkMaidAppDelegate : NSObject {
     NSWindow *window;
-	AddTaskWindowController *addTaskWindowController;
-	SearchWindowController *searchWindowController;
+	SingleInputWindowController *singleInputWindowController;
 	MultiAddWindowController *multiAddWindowController;
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;

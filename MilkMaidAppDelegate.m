@@ -259,9 +259,10 @@
 
 -(void)showAddTask:(id)sender {
 
-	if (!addTaskWindowController)
-		addTaskWindowController = [[AddTaskWindowController alloc] initWithWindowNibName:@"AddTask"];
-	NSWindow *sheet = [addTaskWindowController window];
+	if (!singleInputWindowController)
+		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
+	[singleInputWindowController setButtonText:@"Add Task"];
+	NSWindow *sheet = [singleInputWindowController window];
 	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
 	   didEndSelector:@selector(closeAddTaskSheet:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -269,7 +270,7 @@
 -(void)closeAddTaskSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[sheet orderOut:self];
 	if (returnCode == 1) {
-		NSString *task = [addTaskWindowController task];
+		NSString *task = [singleInputWindowController text];
 		[NSThread detachNewThreadSelector:@selector(addTask:) toTarget:self withObject:task];
 	}
 
@@ -399,9 +400,10 @@
 }
 
 -(void)menuSearch:(id)sender {
-	if (!searchWindowController)
-		searchWindowController = [[SearchWindowController alloc] initWithWindowNibName:@"Search"];
-	NSWindow *sheet = [searchWindowController window];
+	if (!singleInputWindowController)
+		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
+	[singleInputWindowController setButtonText:@"Search"];
+	NSWindow *sheet = [singleInputWindowController window];
 	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
 	   didEndSelector:@selector(closeSearchSheet:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -409,7 +411,7 @@
 -(void)closeSearchSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[sheet orderOut:self];
 	if (returnCode == 1) {
-		currentSearch = [searchWindowController searchString];
+		currentSearch = [singleInputWindowController text];
 		currentList = nil;
 		[currentSearch retain];
 		[listPopUp selectItemAtIndex:0];
