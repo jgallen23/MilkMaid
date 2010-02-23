@@ -22,7 +22,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="533"/>
-			<integer value="636"/>
+			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -222,7 +222,7 @@
 								<object class="NSMenuItem" id="510805079">
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">Add Multiple Tasks</string>
-									<string key="NSKeyEquiv">m</string>
+									<string type="base64-UTF8" key="NSKeyEquiv">DQ</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -299,7 +299,7 @@
 							<string key="NSTitle">Task</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMenuItem" id="938973069">
+								<object class="NSMenuItem" id="940834472">
 									<reference key="NSMenu" ref="398805313"/>
 									<string key="NSTitle">Rename</string>
 									<string key="NSKeyEquiv">r</string>
@@ -359,7 +359,7 @@
 										</object>
 									</object>
 								</object>
-								<object class="NSMenuItem" id="352940946">
+								<object class="NSMenuItem" id="138435008">
 									<reference key="NSMenu" ref="398805313"/>
 									<string key="NSTitle">Set Tags</string>
 									<string key="NSKeyEquiv">s</string>
@@ -1021,7 +1021,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">menuRenameTask:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="938973069"/>
+						<reference key="destination" ref="940834472"/>
 					</object>
 					<int key="connectionID">692</int>
 				</object>
@@ -1029,7 +1029,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">menuSetTagsTask:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="352940946"/>
+						<reference key="destination" ref="138435008"/>
 					</object>
 					<int key="connectionID">694</int>
 				</object>
@@ -1441,8 +1441,8 @@
 							<reference ref="27744640"/>
 							<reference ref="850003170"/>
 							<reference ref="531185755"/>
-							<reference ref="938973069"/>
-							<reference ref="352940946"/>
+							<reference ref="940834472"/>
+							<reference ref="138435008"/>
 							<reference ref="1015341722"/>
 						</object>
 						<reference key="parent" ref="920562994"/>
@@ -1547,12 +1547,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">691</int>
-						<reference key="object" ref="938973069"/>
+						<reference key="object" ref="940834472"/>
 						<reference key="parent" ref="398805313"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">693</int>
-						<reference key="object" ref="352940946"/>
+						<reference key="object" ref="138435008"/>
 						<reference key="parent" ref="398805313"/>
 					</object>
 				</object>
