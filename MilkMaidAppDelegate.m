@@ -292,12 +292,14 @@
 	[progress setHidden:YES];
 }
 
--(void)addTasks:(NSArray*)newTasks {
+-(void)addTasks:(NSArray*)newTasksArray {
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSArray *newTasks = [newTasksArray objectAtIndex:0];
+	NSString *globalAttributes = [newTasksArray objectAtIndex:1];
 	for (NSString *t in newTasks) {
-		
-		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, t, @"1", nil] 
+		NSString *taskName = [NSString stringWithFormat:@"%@ %@", t, globalAttributes];
+		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, taskName, @"1", nil] 
 																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
 		if (currentList) {
 			[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
@@ -432,7 +434,8 @@
 	[sheet orderOut:self];
 	if (returnCode == 1) {
 		NSArray *newTasks = [multiAddWindowController tasks];
-		[NSThread detachNewThreadSelector:@selector(addTasks:) toTarget:self withObject:newTasks];
+		NSString *globalAttributes = [multiAddWindowController globalAttributes];
+		[NSThread detachNewThreadSelector:@selector(addTasks:) toTarget:self withObject:[NSArray arrayWithObjects: newTasks,globalAttributes,nil]];
 	}
 	
 }

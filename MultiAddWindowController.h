@@ -11,9 +11,12 @@
 
 @interface MultiAddWindowController : NSWindowController {
 	IBOutlet NSScrollView *scrollTextView;
+	IBOutlet NSTextField *globalTextField;
 	NSArray *tasks;
+	NSString *globalAttributes; 
 }
 @property (assign) NSArray *tasks;
+@property (assign) NSString *globalAttributes;
 -(IBAction)addClicked:(id)sender;
 -(IBAction)cancelClicked:(id)sender;
 @end
