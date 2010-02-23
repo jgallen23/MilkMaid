@@ -475,4 +475,80 @@
 	[progress setHidden:YES];
 }
 
+-(void)menuSetTagsTask:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	if (!singleInputWindowController)
+		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
+	[singleInputWindowController setButtonText:@"Set Tags"];
+	[singleInputWindowController setTextValue:[task objectForKey:@"tags"]];
+	NSWindow *sheet = [singleInputWindowController window];
+	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
+	   didEndSelector:@selector(closeSetTagsTaskSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(void)closeSetTagsTaskSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		NSString *tags = [singleInputWindowController text];
+		NSInteger rowIndex = [taskTable selectedRow];
+		if (rowIndex == -1)
+			return;
+		NSDictionary *task = [tasks objectAtIndex:rowIndex];
+		
+		NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], tags,nil] 
+															 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"tags", nil]];
+		[NSThread detachNewThreadSelector:@selector(setTagsTask:) toTarget:self withObject:params];
+	}
+	
+}
+-(void)setTagsTask:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.setTags" andParameters:params withToken:YES];
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
+
+-(void)menuSetDueTask:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	if (!singleInputWindowController)
+		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
+	[singleInputWindowController setButtonText:@"Set Due"];
+	[singleInputWindowController setTextValue:[task objectForKey:@"due"]];
+	NSWindow *sheet = [singleInputWindowController window];
+	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
+	   didEndSelector:@selector(closeSetDueTaskSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(void)closeSetDueTaskSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		NSString *due = [singleInputWindowController text];
+		NSInteger rowIndex = [taskTable selectedRow];
+		if (rowIndex == -1)
+			return;
+		NSDictionary *task = [tasks objectAtIndex:rowIndex];
+		
+		NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], due, @"1", nil] 
+															 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"due", @"parse", nil]];
+		[NSThread detachNewThreadSelector:@selector(setDueTask:) toTarget:self withObject:params];
+	}
+	
+}
+-(void)setDueTask:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.setDueDate" andParameters:params withToken:YES];
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
+
 @end

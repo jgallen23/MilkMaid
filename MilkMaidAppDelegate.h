@@ -50,4 +50,6 @@
 -(IBAction)menuSearch:(id)sender;
 -(IBAction)menuMultiAdd:(id)sender;
 -(IBAction)menuRenameTask:(id)sender;
+-(IBAction)menuSetTagsTask:(id)sender;
+-(IBAction)menuSetDueTask:(id)sender;
 @end
