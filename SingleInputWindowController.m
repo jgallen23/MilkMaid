@@ -15,8 +15,12 @@
 @synthesize buttonText;
 
 -(void)windowDidLoad {
-	[textField setStringValue:text];
-	[okButton setTitle:buttonText];
+	if (text) {
+		[textField setStringValue:text];
+	}
+	if (buttonText) {
+		[okButton setTitle:buttonText];
+	}
 }
 
 -(void)okClicked:(id)sender {
