@@ -20,5 +20,5 @@
 -(IBAction)okClicked:(id)sender;
 -(IBAction)cancelClicked:(id)sender;
 -(void)setTextValue:(NSString *)textValue;
--(void)setButtonText:(NSString *);
+-(void)setButtonText:(NSString *)buttonTextValue;
 @end
