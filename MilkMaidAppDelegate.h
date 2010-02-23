@@ -49,4 +49,5 @@
 -(IBAction)menuDeleteTask:(id)sender;
 -(IBAction)menuSearch:(id)sender;
 -(IBAction)menuMultiAdd:(id)sender;
+-(IBAction)menuRenameTask:(id)sender;
 @end

@@ -437,4 +437,42 @@
 	
 }
 
+-(void)menuRenameTask:(id)sender {
+	NSInteger rowIndex = [taskTable selectedRow];
+	if (rowIndex == -1)
+		return;
+	NSDictionary *task = [tasks objectAtIndex:rowIndex];
+	if (!singleInputWindowController)
+		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
+	[singleInputWindowController setButtonText:@"Rename"];
+	[singleInputWindowController setTextValue:[task objectForKey:@"name"]];
+	NSWindow *sheet = [singleInputWindowController window];
+	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
+	   didEndSelector:@selector(closeRenameTaskSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(void)closeRenameTaskSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		NSString *taskName = [singleInputWindowController text];
+		NSInteger rowIndex = [taskTable selectedRow];
+		if (rowIndex == -1)
+			return;
+		NSDictionary *task = [tasks objectAtIndex:rowIndex];
+		
+		NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, [task objectForKey:@"list_id"], [task objectForKey:@"taskseries_id"], [task objectForKey:@"task_id"], taskName,nil] 
+															 forKeys:[NSArray arrayWithObjects:@"timeline", @"list_id", @"taskseries_id", @"task_id", @"name", nil]];
+		[NSThread detachNewThreadSelector:@selector(renameTask:) toTarget:self withObject:params];
+	}
+	
+}
+-(void)renameTask:(NSDictionary*)params {
+	[progress setHidden:NO];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[rtmController dataByCallingMethod:@"rtm.tasks.setName" andParameters:params withToken:YES];
+	[self getTasks];
+	[pool release];
+	[progress setHidden:YES];
+}
+
 @end
