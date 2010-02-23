@@ -417,6 +417,7 @@
 		currentList = nil;
 		[currentSearch retain];
 		[listPopUp selectItemAtIndex:0];
+		[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
 		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
 	}
 	
