@@ -89,15 +89,12 @@ static int compare(id obj1, id obj2, void *context) {
 	
 	if (![taskList objectForKey:@"list"])
 		return tasks;
-	NSLog(@"%@", taskList);
 	NSArray *listTasks = [self getArray:[[rtmResponse objectForKey:@"tasks"] objectForKey:@"list"]];
 
 	for (NSDictionary *list in listTasks) {
-		NSLog(@"%@", list);
 		NSArray *taskSeriesList = [self getArray:[list objectForKey:@"taskseries"]];
 		NSArray* taskSeriesListReversed = [[taskSeriesList reverseObjectEnumerator] allObjects];
 		for (NSDictionary *taskSeries in taskSeriesListReversed) {
-			NSLog(@"%@", taskSeries);
 			
 			NSArray *taskArray = [self getArray:[taskSeries objectForKey:@"task"]];
 			for (NSDictionary *t in taskArray) {
