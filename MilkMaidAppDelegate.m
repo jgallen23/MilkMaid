@@ -525,7 +525,7 @@
 	if (!singleInputWindowController)
 		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
 	[singleInputWindowController setButtonText:@"Set Due"];
-	[singleInputWindowController setTextValue:[task objectForKey:@"due"]];
+	[singleInputWindowController setTextValue:[[task objectForKey:@"due"] isKindOfClass:[NSDate class]] ? [[task objectForKey:@"due"] relativeFormattedDateOnly] : @""];
 	NSWindow *sheet = [singleInputWindowController window];
 	[NSApp beginSheet:sheet modalForWindow:window modalDelegate:self 
 	   didEndSelector:@selector(closeSetDueTaskSheet:returnCode:contextInfo:) contextInfo:nil];
