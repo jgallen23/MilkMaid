@@ -6,29 +6,20 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.7</title>
-            <pubDate>Sat, 23 Feb 2010 8:00:00 +0000</pubDate>
+            <title>Version 0.7.1</title>
+            <pubDate>Sat, 24 Feb 2010 7:00:00 +0000</pubDate>
 			<description><![CDATA[
-				<h3>Features</h3>
-				<ul>
-					<li>Rename Task (cmd-r)</li>
-					<li>Change Due Date (cmd-d)</li>
-					<li>Change Tags (cmd-s)</li>
-					<li>Global attributes for multiadd</li>
-				</ul>
 				<h3>Changes</h3>
 				<ul>
-					<li>Refresh Hotkey now cmd-shift-r</li>
-					<li>Changed MultiAdd hotkey to cmd-return</li>
-					<li>Changed Search hotkey to cmd-f</li>
-					<li>Removed Due Date Menu</li>
+					<li>Updated Sparkle Framework</li>
 				</ul>
 				<h3>Bug Fixes</h3>
 				<ul>
-					<li>Scroll to top of list when seraching</li>
+					<li>Clear global attributes when canceling MultiAdd</li>
+					<li>Fixed issues when setting due date</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.tar.gz" sparkle:version="0.7" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFE0+qS2UV0q+zhtAnluwLAqh5RUjAhUAn9xWtH0GC+xwOKkwDp46Vb6oqGo=" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.1.tar.gz" sparkle:version="0.7.1" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFFgzE8gNDmTdkYxKzHrxnh+WN8/zAhUAmlMkms9mFs3TuJ8D7xPUdmzYeg4=" />
          </item>
    </channel>
 </rss>
