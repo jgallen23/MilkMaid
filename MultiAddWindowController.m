@@ -24,12 +24,15 @@
 	[globalAttributes retain];
 	[textView setString:@""];
 	[globalTextField setStringValue:@""];
+	[self.window makeFirstResponder:scrollTextView];
 	[NSApp endSheet:[self window] returnCode:1];
 }
 
 -(void)cancelClicked:(id)sender {
 	NSTextView *textView = [scrollTextView documentView];
 	[textView setString:@""];
+	[globalTextField setStringValue:@""];
+	[self.window makeFirstResponder:scrollTextView];
 	[NSApp endSheet:[self window] returnCode:0];
 }
 
