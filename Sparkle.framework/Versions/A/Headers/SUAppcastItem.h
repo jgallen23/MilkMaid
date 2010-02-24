@@ -9,7 +9,9 @@
 #ifndef SUAPPCASTITEM_H
 #define SUAPPCASTITEM_H
 
-@interface SUAppcastItem : NSObject {
+@interface SUAppcastItem : NSObject
+{
+@private
 	NSString *title;
 	NSDate *date;
 	NSString *itemDescription;
@@ -28,6 +30,7 @@
 
 // Initializes with data from a dictionary provided by the RSS class.
 - initWithDictionary:(NSDictionary *)dict;
+- initWithDictionary:(NSDictionary *)dict failureReason:(NSString**)error;
 
 - (NSString *)title;
 - (NSString *)versionString;
