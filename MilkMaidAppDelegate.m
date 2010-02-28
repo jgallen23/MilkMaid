@@ -11,16 +11,19 @@
 
 @implementation MilkMaidAppDelegate
 
-@synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-
+	windowControllers = [[NSMutableArray alloc] init];
+	[self openNewWindow:nil];
 
 }
 
-
-- (void)openNewWindow {
-	NSLog(@"open");
+- (void)openNewWindow:(id)sender {
+	MilkMaidWindowController *windowController = [[MilkMaidWindowController alloc] initWithWindowNibName:@"MilkMaid"];
+	NSWindow *window = windowController.window;
+	[windowControllers addObject:windowController];
+	[[NSApplication sharedApplication] addWindowsItem:window title:window.title filename:NO];
+	[windowController showWindow:self];
 }
 
 @end

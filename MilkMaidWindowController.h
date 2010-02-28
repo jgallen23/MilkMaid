@@ -33,11 +33,11 @@
 	IBOutlet YRKSpinningProgressIndicator *progress;
 }
 -(IBAction)listSelected:(id)sender;
--(IBAction)showAddTask:(id)sender;
+-(IBAction)menuAddTask:(id)sender;
 
 -(IBAction)closeSheet:(id)sender;
--(IBAction)refresh:(id)sender;
--(IBAction)showLists:(id)sender;
+-(IBAction)menuRefresh:(id)sender;
+-(IBAction)menuShowLists:(id)sender;
 -(IBAction)menuPriority:(id)sender;
 -(IBAction)menuDueDate:(id)sender;
 -(IBAction)menuPostponeTask:(id)sender;

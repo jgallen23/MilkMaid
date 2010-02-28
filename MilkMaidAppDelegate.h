@@ -8,14 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class MilkMaidWindowController;
 
 @interface MilkMaidAppDelegate : NSObject {
-    NSWindow *window;
-
+	NSMutableArray *windowControllers;
 	
 }
-
-@property (assign) IBOutlet NSWindow *window;
 
 -(IBAction)openNewWindow:(id)sender;
 

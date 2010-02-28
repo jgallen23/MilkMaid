@@ -13,9 +13,7 @@
 @implementation MilkMaidWindowController
 
 -(void)awakeFromNib {
-	
-	
-	
+	[self.window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
 	NSString *apiKey = @"1734ba9431007c2242b6865a69940aa5";
 	NSString *secret = @"72d1c12ffb26e759";
 	
@@ -26,11 +24,8 @@
 	[progress setForeColor:[NSColor whiteColor]];
 	[progress startAnimation:nil];
 	
-	//	[addTaskPanel orderOut:self];
-	
 	[taskTable setDelegate:self];
 	[taskTable setDataSource:self];
-	
 	rtmController = [[EVRZRtmApi alloc] initWithApiKey:apiKey andApiSecret:secret];
 
 	[NSThread detachNewThreadSelector:@selector(checkToken) toTarget:self withObject:nil];
@@ -176,7 +171,7 @@
 	[progress setHidden:YES];
 }
 
--(void)refresh:(id)sender {
+-(void)menuRefresh:(id)sender {
 	[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 }
 
@@ -259,7 +254,7 @@
 	[progress setHidden:YES];
 }
 
--(void)showAddTask:(id)sender {
+-(void)menuAddTask:(id)sender {
 	
 	if (!singleInputWindowController)
 		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
@@ -315,7 +310,7 @@
 	
 }
 
--(void)showLists:(id)sender {
+-(void)menuShowLists:(id)sender {
 	[listPopUp performClick:self];
 }
 
@@ -555,6 +550,10 @@
 	[self getTasks];
 	[pool release];
 	[progress setHidden:YES];
+}
+
+-(void)menuNewWindow:(id)sender {
+	[[NSApp delegate] openNewWindow];
 }
 
 @end
