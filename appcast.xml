@@ -6,20 +6,15 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.7.1</title>
-            <pubDate>Sat, 24 Feb 2010 7:00:00 +0000</pubDate>
+            <title>Version 0.7.2</title>
+            <pubDate>Sun, 28 Feb 2010 15:00:00 +0000</pubDate>
 			<description><![CDATA[
 				<h3>Changes</h3>
 				<ul>
-					<li>Updated Sparkle Framework</li>
-				</ul>
-				<h3>Bug Fixes</h3>
-				<ul>
-					<li>Clear global attributes when canceling MultiAdd</li>
-					<li>Fixed issues when setting due date</li>
+					<li>Support for Multiple Windows (cmd-N)</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.1.tar.gz" sparkle:version="0.7.1" length="1623481" type="application/octet-stream" sparkle:dsaSignature="MC0CFFgzE8gNDmTdkYxKzHrxnh+WN8/zAhUAmlMkms9mFs3TuJ8D7xPUdmzYeg4=" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.2.tar.gz" sparkle:version="0.7.2" length="2208338" type="application/octet-stream" sparkle:dsaSignature="MC4CFQDNcUHzk2p2e6IS/MgyxyVy/lqf1QIVAIGy2BnOnn+VutqE7qZkJvRw15B8" />
          </item>
    </channel>
 </rss>
