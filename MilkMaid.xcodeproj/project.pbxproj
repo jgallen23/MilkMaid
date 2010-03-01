@@ -15,6 +15,8 @@
 		762EAB05113AD8FF0093921D /* MilkMaid.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762EAB04113AD8FF0093921D /* MilkMaid.xib */; };
 		767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 767A8742112AF51E00A77326 /* MultiAdd.xib */; };
 		767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767A8757112AF58E00A77326 /* MultiAddWindowController.m */; };
+		76DF8422113B687400B2A3B2 /* ComboInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76DF8421113B687400B2A3B2 /* ComboInput.xib */; };
+		76DF8434113B693900B2A3B2 /* ComboInputWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */; };
 		76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
 		76EA44561111652500E10B8A /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
 		76EA44A4111167A500E10B8A /* EVRZRtmApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44A3111167A500E10B8A /* EVRZRtmApi.m */; };
@@ -75,6 +77,9 @@
 		767A8742112AF51E00A77326 /* MultiAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiAdd.xib; sourceTree = "<group>"; };
 		767A8756112AF58E00A77326 /* MultiAddWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiAddWindowController.h; sourceTree = "<group>"; };
 		767A8757112AF58E00A77326 /* MultiAddWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiAddWindowController.m; sourceTree = "<group>"; };
+		76DF8421113B687400B2A3B2 /* ComboInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComboInput.xib; sourceTree = "<group>"; };
+		76DF8432113B693900B2A3B2 /* ComboInputWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboInputWindowController.h; sourceTree = "<group>"; };
+		76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboInputWindowController.m; sourceTree = "<group>"; };
 		76EA44511111650700E10B8A /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = ../../../lib/BWToolkit/BWToolkitFramework.framework; sourceTree = SOURCE_ROOT; };
 		76EA44A2111167A500E10B8A /* EVRZRtmApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVRZRtmApi.h; sourceTree = "<group>"; };
 		76EA44A3111167A500E10B8A /* EVRZRtmApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVRZRtmApi.m; sourceTree = "<group>"; };
@@ -151,6 +156,8 @@
 				762EAA2A113ACB8E0093921D /* MilkMaidWindowController.m */,
 				C9C148EE113B1AA400F292B7 /* MilkMaidPanel.h */,
 				C9C148EF113B1AA400F292B7 /* MilkMaidPanel.m */,
+				76DF8432113B693900B2A3B2 /* ComboInputWindowController.h */,
+				76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 				C9FBE61E1123D73300115FFF /* SingleInput.xib */,
 				767A8742112AF51E00A77326 /* MultiAdd.xib */,
 				762EAB04113AD8FF0093921D /* MilkMaid.xib */,
+				76DF8421113B687400B2A3B2 /* ComboInput.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 				C9F45EDE112B74E100F48377 /* priority2.png in Resources */,
 				C9F45EDF112B74E100F48377 /* priority3.png in Resources */,
 				762EAB05113AD8FF0093921D /* MilkMaid.xib in Resources */,
+				76DF8422113B687400B2A3B2 /* ComboInput.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +346,7 @@
 				767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */,
 				762EAA2B113ACB8E0093921D /* MilkMaidWindowController.m in Sources */,
 				C9C148F0113B1AA400F292B7 /* MilkMaidPanel.m in Sources */,
+				76DF8434113B693900B2A3B2 /* ComboInputWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

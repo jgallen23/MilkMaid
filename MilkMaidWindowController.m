@@ -21,11 +21,14 @@
 	priority2Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority2" ofType:@"png"]];
 	priority3Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority3" ofType:@"png"]];
 	
+	tagList = [[NSMutableArray alloc] init];
+	
 	[progress setForeColor:[NSColor whiteColor]];
 	[progress startAnimation:nil];
 	
 	[taskTable setDelegate:self];
 	[taskTable setDataSource:self];
+	//return;
 	rtmController = [[EVRZRtmApi alloc] initWithApiKey:apiKey andApiSecret:secret];
 
 	[NSThread detachNewThreadSelector:@selector(checkToken) toTarget:self withObject:nil];
@@ -124,14 +127,7 @@
 		[currentList retain];
 	}
 }
--(void)getTasks {
-	if (currentList) {
-		[self getTasksFromCurrentList];
-	} else {
-		[self searchTasks:currentSearch];
-	}
-	
-}
+
 -(void)getTasksFromCurrentList {
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -153,6 +149,8 @@
 
 -(void)searchTasks:(NSString*)searchString {
 	[progress setHidden:NO];
+	[listPopUp selectItemAtIndex:0];
+	[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
 	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
 	
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -169,6 +167,15 @@
 	[tasks retain];
 	[pool release];
 	[progress setHidden:YES];
+}
+
+-(void)getTasks {
+	if (currentList) {
+		[self getTasksFromCurrentList];
+	} else {
+		[self searchTasks:currentSearch];
+	}
+	
 }
 
 -(void)menuRefresh:(id)sender {
@@ -226,12 +233,18 @@
 			[cell setBold:NO];
 		}
 		
-		
-		[cell setAlternateText:[task objectForKey:@"tags"]];
-		
+		[cell setAlternateText:[[task objectForKey:@"tags"] componentsJoinedByString:@","]];
+		[self addGlobalTags:[task objectForKey:@"tags"]];
 		return [task objectForKey:@"name"];
 	}
 	
+}
+
+-(void)addGlobalTags:(NSArray*)tags {
+	for (NSString *tag in tags) {
+		if (![tagList containsObject:tag])
+			[tagList addObject:tag];
+	}
 }
 
 
@@ -413,8 +426,7 @@
 		currentSearch = [singleInputWindowController text];
 		currentList = nil;
 		[currentSearch retain];
-		[listPopUp selectItemAtIndex:0];
-		[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
+
 		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
 	}
 	
@@ -552,8 +564,20 @@
 	[progress setHidden:YES];
 }
 
--(void)menuNewWindow:(id)sender {
-	[[NSApp delegate] openNewWindow];
+-(void)menuJumpToTag:(id)sender {
+	if (!comboInputWindowController)
+		comboInputWindowController = [[ComboInputWindowController alloc] initWithWindowNibName:@"ComboInput"];
+	[comboInputWindowController setData:tagList];
+	NSWindow *sheet = [comboInputWindowController window];
+	[NSApp beginSheet:sheet modalForWindow:self.window modalDelegate:self 
+	   didEndSelector:@selector(closeJumpToTagSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+-(void)closeJumpToTagSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+	[sheet orderOut:self];
+	if (returnCode == 1) {
+		[self searchTasks:[NSString stringWithFormat:@"tag:%@", [comboInputWindowController text]]];
+	}
 }
 
 @end

@@ -13,10 +13,12 @@
 #import "YRKSpinningProgressIndicator.h"
 #import "SingleInputWindowController.h"
 #import "MultiAddWindowController.h"
+#import "ComboInputWindowController.h"
 
 @interface MilkMaidWindowController : NSWindowController {
 	SingleInputWindowController *singleInputWindowController;
 	MultiAddWindowController *multiAddWindowController;
+	ComboInputWindowController *comboInputWindowController;
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;
 	NSDictionary *currentList;
@@ -29,6 +31,7 @@
 	NSImage *priority1Image;
 	NSImage *priority2Image;
 	NSImage *priority3Image;
+	NSMutableArray *tagList;
 	
 	IBOutlet YRKSpinningProgressIndicator *progress;
 }
@@ -47,4 +50,5 @@
 -(IBAction)menuRenameTask:(id)sender;
 -(IBAction)menuSetTagsTask:(id)sender;
 -(IBAction)menuSetDueTask:(id)sender;
+-(IBAction)menuJumpToTag:(id)sender;
 @end

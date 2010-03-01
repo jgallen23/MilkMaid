@@ -99,24 +99,27 @@ static int compare(id obj1, id obj2, void *context) {
 			NSArray *taskArray = [self getArray:[taskSeries objectForKey:@"task"]];
 			for (NSDictionary *t in taskArray) {
 
-				id *due;
+				id due;
 				if (![[t objectForKey:@"due"] isEqualToString:@""]) {
 					NSString *dueDate = [[t objectForKey:@"due"] substringToIndex:10];
 					due = [NSDate dateWithDateString:dueDate];
 				} else {
 					due = @"";
 				}
-				NSString *tags = @"";
-				id *tagNode = [taskSeries objectForKey:@"tags"];
+				NSArray *tags;
+				id tagNode = [taskSeries objectForKey:@"tags"];
 				if ([tagNode isKindOfClass:[NSDictionary class]]) {
-					id *tn = [tagNode objectForKey:@"tag"];
+					id tn = [tagNode objectForKey:@"tag"];
 					
-					if ([tn isKindOfClass:[NSArray class]]) {
-						tags = [tn componentsJoinedByString:@","];
+					if (![tn isKindOfClass:[NSArray class]]) {
+						tags = [[NSArray alloc] initWithObjects:(NSString*)tn,nil];
 					} else {
-						tags = tn;
+						tags = (NSArray*)tn;
 					}
+				} else {
+					tags = [[NSArray alloc] init];
 				}
+
 
 				NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[list objectForKey:@"id"], [taskSeries objectForKey:@"id"], 
 																		  [t objectForKey:@"id"], [taskSeries objectForKey:@"name"], [t objectForKey:@"priority"], due , tags, nil] 
