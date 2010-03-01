@@ -114,11 +114,17 @@
 	[self performSelectorOnMainThread:@selector(selectLast) withObject:nil waitUntilDone:NO];
 }
 
+-(void)setLoadLastList:(BOOL)load {
+	loadLastList = load;
+}
+
 -(void)selectLast {
-	NSString *lastList = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_LIST];
-	if (lastList) {
-		[listPopUp selectItemWithTitle:lastList];
-		[self listSelected:nil];
+	if (loadLastList) {
+		NSString *lastList = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_LIST];
+		if (lastList) {
+			[listPopUp selectItemWithTitle:lastList];
+			[self listSelected:nil];
+		}
 	}
 }
 
@@ -142,8 +148,8 @@
 }
 
 -(void)getTasksFromCurrentList {
-	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[progress setHidden:NO];
 	NSDictionary *params;
 	if ([[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
 		NSString *filter = [NSString stringWithFormat:@"(%@) and status:incomplete", [currentList objectForKey:@"id"]];
@@ -168,6 +174,7 @@
 }
 
 -(void)searchTasks:(NSString*)searchString {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[progress setHidden:NO];
 	[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
 	[listPopUp addItemWithTitle:searchString];
@@ -177,7 +184,7 @@
 	
 	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
 	
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
 	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:newSearch, nil] 
 														 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:params withToken:YES];
@@ -612,7 +619,7 @@
 		currentSearch = [NSString stringWithFormat:@"tag:%@", tag];
 		[currentSearch retain];
 		globalTaskAttributes = [[NSString stringWithFormat:@"#%@", tag] retain]; 
-		[self searchTasks: currentSearch];
+		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
 	}
 }
 

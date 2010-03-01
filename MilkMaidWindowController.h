@@ -33,9 +33,11 @@
 	NSImage *priority3Image;
 	NSMutableArray *tagList;
 	NSString *globalTaskAttributes;
+	BOOL loadLastList;
 	
 	IBOutlet YRKSpinningProgressIndicator *progress;
 }
+-(void)setLoadLastList:(BOOL)load;
 -(IBAction)listSelected:(id)sender;
 -(IBAction)menuAddTask:(id)sender;
 

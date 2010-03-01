@@ -21,6 +21,9 @@
 - (void)openNewWindow:(id)sender {
 	MilkMaidWindowController *windowController = [[MilkMaidWindowController alloc] initWithWindowNibName:@"MilkMaid"];
 	NSWindow *window = windowController.window;
+	if ([windowControllers count] == 0) {
+		[windowController setLoadLastList:YES];
+	}
 	[windowControllers addObject:windowController];
 	[[NSApplication sharedApplication] addWindowsItem:window title:window.title filename:NO];
 	[windowController showWindow:self];
