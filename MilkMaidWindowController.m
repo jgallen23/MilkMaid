@@ -120,6 +120,7 @@
 	selectedIndex--;
 	if (selectedIndex != -1 && [currentList objectForKey:@"id"] != [[lists objectAtIndex:selectedIndex] objectForKey:@"id"]) {
 		currentList = [lists objectAtIndex:selectedIndex];
+		globalTaskAttributes = @"";
 		[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
 		[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
 		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
@@ -293,6 +294,8 @@
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
+	task = [NSString stringWithFormat:@"%@ %@", task, globalTaskAttributes];
+	
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 																	   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
 	if (currentList) {
@@ -311,7 +314,7 @@
 	NSArray *newTasks = [newTasksArray objectAtIndex:0];
 	NSString *globalAttributes = [newTasksArray objectAtIndex:1];
 	for (NSString *t in newTasks) {
-		NSString *taskName = [NSString stringWithFormat:@"%@ %@", t, globalAttributes];
+		NSString *taskName = [NSString stringWithFormat:@"%@ %@ %@", t, globalTaskAttributes, globalAttributes];
 		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, taskName, @"1", nil] 
 																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
 		if (currentList) {
@@ -579,7 +582,13 @@
 -(void)closeJumpToTagSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[sheet orderOut:self];
 	if (returnCode == 1) {
-		[self searchTasks:[NSString stringWithFormat:@"tag:%@", [comboInputWindowController text]]];
+		NSString *tag = [comboInputWindowController text];
+		[self addGlobalTags:[[NSArray alloc] initWithObjects:tag,nil]];
+		currentList = nil;
+		currentSearch = [NSString stringWithFormat:@"tag:%@", tag];
+		[currentSearch retain];
+		globalTaskAttributes = [[NSString stringWithFormat:@"#%@", tag] retain]; 
+		[self searchTasks: currentSearch];
 	}
 }
 

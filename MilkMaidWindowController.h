@@ -32,6 +32,7 @@
 	NSImage *priority2Image;
 	NSImage *priority3Image;
 	NSMutableArray *tagList;
+	NSString *globalTaskAttributes;
 	
 	IBOutlet YRKSpinningProgressIndicator *progress;
 }
