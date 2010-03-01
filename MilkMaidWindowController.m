@@ -190,6 +190,9 @@
 	} else {
 		[[[NSApplication sharedApplication] dockTile] setBadgeLabel:@""];
 	}
+	for (NSDictionary *task in tasks) {
+		[self addGlobalTags:[task objectForKey:@"tags"]];
+	}
 	[taskTable reloadData];
 	
 }
@@ -234,7 +237,7 @@
 		}
 		
 		[cell setAlternateText:[[task objectForKey:@"tags"] componentsJoinedByString:@","]];
-		[self addGlobalTags:[task objectForKey:@"tags"]];
+
 		return [task objectForKey:@"name"];
 	}
 	
