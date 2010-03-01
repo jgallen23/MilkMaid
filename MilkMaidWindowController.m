@@ -9,6 +9,7 @@
 #import "MilkMaidWindowController.h"
 #define TOKEN @"Token"
 #define LAST_LIST @"LastList"
+#define TAGS @"Tags"
 
 @implementation MilkMaidWindowController
 
@@ -21,7 +22,14 @@
 	priority2Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority2" ofType:@"png"]];
 	priority3Image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"priority3" ofType:@"png"]];
 	
-	tagList = [[NSMutableArray alloc] init];
+	id tags = [[NSUserDefaults standardUserDefaults] objectForKey:TAGS];
+	if (tags) {
+		tagList = (NSMutableArray*)tags;
+		NSLog(@"%@", tagList);
+	} else {
+		tagList = [[NSMutableArray alloc] init];
+	}
+
 	
 	[progress setForeColor:[NSColor whiteColor]];
 	[progress startAnimation:nil];
@@ -120,11 +128,15 @@
 	selectedIndex--;
 	if (selectedIndex != -1 && [currentList objectForKey:@"id"] != [[lists objectAtIndex:selectedIndex] objectForKey:@"id"]) {
 		currentList = [lists objectAtIndex:selectedIndex];
-		globalTaskAttributes = @"";
-		[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
 		[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
-		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 		
+		if ([[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
+			globalTaskAttributes = [currentList objectForKey:@"globals"];
+		} else {
+			globalTaskAttributes = @"";
+			[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
+		}
+		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
 		[currentList retain];
 	}
 }
@@ -132,8 +144,15 @@
 -(void)getTasksFromCurrentList {
 	[progress setHidden:NO];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[currentList objectForKey:@"id"], @"status:incomplete", nil] 
+	NSDictionary *params;
+	if ([[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
+		NSString *filter = [NSString stringWithFormat:@"(%@) and status:incomplete", [currentList objectForKey:@"id"]];
+		params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:filter, nil] 
+															 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
+	} else {
+		params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[currentList objectForKey:@"id"], @"status:incomplete", nil] 
 														 forKeys:[NSArray arrayWithObjects:@"list_id", @"filter", nil]];
+	}
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:params withToken:YES];
 	
 	RTMHelper *rtmHelper = [[RTMHelper alloc] init];
@@ -150,8 +169,12 @@
 
 -(void)searchTasks:(NSString*)searchString {
 	[progress setHidden:NO];
-	[listPopUp selectItemAtIndex:0];
 	[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
+	[listPopUp addItemWithTitle:searchString];
+	[listPopUp selectItemWithTitle:searchString];
+	[lists addObject:[[NSDictionary alloc] initWithObjectsAndKeys:searchString, @"id", searchString, 
+					  @"name", @"search", @"type", globalTaskAttributes, @"globals", nil]];
+	
 	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
 	
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -249,6 +272,7 @@
 		if (![tagList containsObject:tag])
 			[tagList addObject:tag];
 	}
+	[[NSUserDefaults standardUserDefaults] setObject:tagList forKey:TAGS];
 }
 
 
@@ -298,7 +322,7 @@
 	
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 																	   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-	if (currentList) {
+	if (currentList && ![[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
 		[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
 	}
 	[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
