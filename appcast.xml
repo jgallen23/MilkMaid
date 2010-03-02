@@ -6,15 +6,19 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.7.2</title>
-            <pubDate>Sun, 28 Feb 2010 15:00:00 +0000</pubDate>
+            <title>Version 0.7.3</title>
+            <pubDate>Mon, 1 Mar 2010 21:00:00 +0000</pubDate>
 			<description><![CDATA[
+				<h3>Features</h3>
+				<ul>
+					<li>Jump to Tag (cmd-t)</li>
+				</ul>
 				<h3>Changes</h3>
 				<ul>
-					<li>Support for Multiple Windows (cmd-N)</li>
+					<li>Don't load last list on new windows</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.2.tar.gz" sparkle:version="0.7.2" length="2208338" type="application/octet-stream" sparkle:dsaSignature="MC4CFQDNcUHzk2p2e6IS/MgyxyVy/lqf1QIVAIGy2BnOnn+VutqE7qZkJvRw15B8" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.3.tar.gz" sparkle:version="0.7.3" length="2208338" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCOXsmKCmc1sX3yjmXnA3MZ0qfabQIUDgY7PtU768O3OK9UOigU8NnKFqI=" />
          </item>
    </channel>
 </rss>
