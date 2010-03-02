@@ -18,7 +18,7 @@
 					<li>Don't load last list on new windows</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.3.tar.gz" sparkle:version="0.7.3" length="2208338" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCOXsmKCmc1sX3yjmXnA3MZ0qfabQIUDgY7PtU768O3OK9UOigU8NnKFqI=" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.3.tar.gz" sparkle:version="0.7.3" length="2208338" type="application/octet-stream" sparkle:dsaSignature="MCwCFFmbmBQZUGKA5X0Fqz2EoKgBM1NmAhRY3QvzWUhGztXUJtsC0bipNBByUw==" />
          </item>
    </channel>
 </rss>
