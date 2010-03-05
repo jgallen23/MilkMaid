@@ -259,7 +259,7 @@ NSComparisonResult sortParameterKeys(NSString* string1, NSString* string2, void 
   NSString* parametersString = [self urlParametersWithDictionary:parameters];
   NSString* signedParameters = [self apiSigFromParameters:parameters];
   NSString* url = [[NSString stringWithFormat:@"http://api.rememberthemilk.com/services/rest/?%@api_sig=%@",
-                    parametersString, signedParameters] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+                    parametersString, signedParameters] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   NSLog(@"%@", url);
 
   return url;
