@@ -25,6 +25,7 @@
 		76EA44C31111682E00E10B8A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BC1111682E00E10B8A /* SBJsonParser.m */; };
 		76EA44C41111682E00E10B8A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EA44BE1111682E00E10B8A /* SBJsonWriter.m */; };
 		76F79643111DD45900FD7EFB /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 76F79642111DD45900FD7EFB /* dsa_pub.pem */; };
+		76FD5BB611415A04004C2E10 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FD5BB511415A04004C2E10 /* Sparkle.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -93,6 +94,7 @@
 		76EA44BD1111682E00E10B8A /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		76EA44BE1111682E00E10B8A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		76F79642111DD45900FD7EFB /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		76FD5BB511415A04004C2E10 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MilkMaid-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MilkMaid-Info.plist"; sourceTree = "<group>"; };
 		C9041E75111280A200D0C6A3 /* RTMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMHelper.h; sourceTree = "<group>"; };
 		C9041E76111280A200D0C6A3 /* RTMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMHelper.m; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */,
+				76FD5BB611415A04004C2E10 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +163,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76FD5BB511415A04004C2E10 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				76EA44511111650700E10B8A /* BWToolkitFramework.framework */,
 			);
