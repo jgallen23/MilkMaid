@@ -279,6 +279,7 @@
 		if (![tagList containsObject:tag])
 			[tagList addObject:tag];
 	}
+	[tagList retain];
 	[[NSUserDefaults standardUserDefaults] setObject:tagList forKey:TAGS];
 }
 
