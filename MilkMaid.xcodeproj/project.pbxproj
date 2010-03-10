@@ -11,6 +11,9 @@
 		256AC3DA0F4B6AC300CF3369 /* MilkMaidAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* MilkMaidAppDelegate.m */; };
 		762EAA2B113ACB8E0093921D /* MilkMaidWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 762EAA2A113ACB8E0093921D /* MilkMaidWindowController.m */; };
 		762EAB05113AD8FF0093921D /* MilkMaid.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762EAB04113AD8FF0093921D /* MilkMaid.xib */; };
+		76646D501147F28C00803310 /* icon_main.png in Resources */ = {isa = PBXBuildFile; fileRef = 76646D4E1147F28C00803310 /* icon_main.png */; };
+		76646D531147F2C200803310 /* icon_main.icns in Resources */ = {isa = PBXBuildFile; fileRef = 76646D521147F2C200803310 /* icon_main.icns */; };
+		76646D5F1147F46500803310 /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 76646D5E1147F46500803310 /* icon_menu.png */; };
 		767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 767A8742112AF51E00A77326 /* MultiAdd.xib */; };
 		767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767A8757112AF58E00A77326 /* MultiAddWindowController.m */; };
 		76DF8422113B687400B2A3B2 /* ComboInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76DF8421113B687400B2A3B2 /* ComboInput.xib */; };
@@ -73,6 +76,9 @@
 		762EAA29113ACB8E0093921D /* MilkMaidWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilkMaidWindowController.h; sourceTree = "<group>"; };
 		762EAA2A113ACB8E0093921D /* MilkMaidWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilkMaidWindowController.m; sourceTree = "<group>"; };
 		762EAB04113AD8FF0093921D /* MilkMaid.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MilkMaid.xib; sourceTree = "<group>"; };
+		76646D4E1147F28C00803310 /* icon_main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_main.png; sourceTree = "<group>"; };
+		76646D521147F2C200803310 /* icon_main.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon_main.icns; sourceTree = "<group>"; };
+		76646D5E1147F46500803310 /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
 		767A8742112AF51E00A77326 /* MultiAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiAdd.xib; sourceTree = "<group>"; };
 		767A8756112AF58E00A77326 /* MultiAddWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiAddWindowController.h; sourceTree = "<group>"; };
 		767A8757112AF58E00A77326 /* MultiAddWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiAddWindowController.m; sourceTree = "<group>"; };
@@ -197,6 +203,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				76646D5E1147F46500803310 /* icon_menu.png */,
+				76646D521147F2C200803310 /* icon_main.icns */,
+				76646D4E1147F28C00803310 /* icon_main.png */,
 				C9F45ECB112B727D00F48377 /* priority1.png */,
 				C9F45EDC112B74E100F48377 /* priority2.png */,
 				C9F45EDD112B74E100F48377 /* priority3.png */,
@@ -351,6 +360,9 @@
 				C9F45EDF112B74E100F48377 /* priority3.png in Resources */,
 				762EAB05113AD8FF0093921D /* MilkMaid.xib in Resources */,
 				76DF8422113B687400B2A3B2 /* ComboInput.xib in Resources */,
+				76646D501147F28C00803310 /* icon_main.png in Resources */,
+				76646D531147F2C200803310 /* icon_main.icns in Resources */,
+				76646D5F1147F46500803310 /* icon_menu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

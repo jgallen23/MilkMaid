@@ -12,7 +12,8 @@
 
 @interface MilkMaidAppDelegate : NSObject {
 	NSMutableArray *windowControllers;
-	
+	NSStatusItem *statusItem;
+	BOOL windowsVisible;
 }
 
 -(IBAction)openNewWindow:(id)sender;

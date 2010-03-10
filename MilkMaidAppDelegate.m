@@ -13,12 +13,38 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	windowsVisible = YES;
+	NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+	statusItem = [[statusBar statusItemWithLength:NSVariableStatusItemLength] retain];
+	
+	NSImage *statusIcon = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icon_menu" ofType:@"png"]];
+	
+	[statusItem setImage:statusIcon];
+	[statusItem setToolTip:@"MilkMaid"];
+	[statusItem setHighlightMode:YES];
+	
+	[statusItem setAction:@selector(toggleWindows)];
+	[statusItem setTarget:self];
+		
 	windowControllers = [[NSMutableArray alloc] init];
 	[self openNewWindow:nil];
 
 }
 
-- (void)openNewWindow:(id)sender {
+-(void)toggleWindows {
+	for (MilkMaidWindowController *wc in windowControllers) {
+		if (windowsVisible) {
+			NSLog(@"hide");
+			[wc.window orderOut:self];
+		} else {
+			[wc.window orderFrontRegardless];
+		}
+
+	}
+	windowsVisible = !windowsVisible;
+}
+
+-(void)openNewWindow:(id)sender {
 	MilkMaidWindowController *windowController = [[MilkMaidWindowController alloc] initWithWindowNibName:@"MilkMaid"];
 	NSWindow *window = windowController.window;
 	if ([windowControllers count] == 0) {
