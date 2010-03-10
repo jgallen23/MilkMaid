@@ -132,34 +132,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
+		080E96DDFE201D6D7F000001 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				76EA44B11111682E00E10B8A /* JSON */,
-				76EA44A2111167A500E10B8A /* EVRZRtmApi.h */,
-				76EA44A3111167A500E10B8A /* EVRZRtmApi.m */,
 				256AC3D80F4B6AC300CF3369 /* MilkMaidAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* MilkMaidAppDelegate.m */,
-				C9041E75111280A200D0C6A3 /* RTMHelper.h */,
-				C9041E76111280A200D0C6A3 /* RTMHelper.m */,
-				C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */,
-				C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */,
-				C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */,
-				C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */,
-				C9A02F2B111BF11F00ACBFE1 /* NSDateHelper.h */,
-				C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */,
-				C9FBE6231123D98600115FFF /* SingleInputWindowController.h */,
-				C9FBE6241123D98600115FFF /* SingleInputWindowController.m */,
-				767A8756112AF58E00A77326 /* MultiAddWindowController.h */,
-				767A8757112AF58E00A77326 /* MultiAddWindowController.m */,
-				762EAA29113ACB8E0093921D /* MilkMaidWindowController.h */,
-				762EAA2A113ACB8E0093921D /* MilkMaidWindowController.m */,
-				C9C148EE113B1AA400F292B7 /* MilkMaidPanel.h */,
-				C9C148EF113B1AA400F292B7 /* MilkMaidPanel.m */,
-				76DF8432113B693900B2A3B2 /* ComboInputWindowController.h */,
-				76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */,
 			);
-			name = Classes;
+			name = App;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -193,7 +172,11 @@
 		29B97314FDCFA39411CA2CEA /* MilkMaid */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
+				080E96DDFE201D6D7F000001 /* App */,
+				7604DB211145587A0090AB22 /* Controls */,
+				7604DB201145585F0090AB22 /* Controllers */,
+				7604DB1F114558520090AB22 /* RTM */,
+				7604DB22114558B20090AB22 /* Utilities */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -238,6 +221,55 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7604DB1F114558520090AB22 /* RTM */ = {
+			isa = PBXGroup;
+			children = (
+				76EA44A2111167A500E10B8A /* EVRZRtmApi.h */,
+				76EA44A3111167A500E10B8A /* EVRZRtmApi.m */,
+				C9041E75111280A200D0C6A3 /* RTMHelper.h */,
+				C9041E76111280A200D0C6A3 /* RTMHelper.m */,
+			);
+			name = RTM;
+			sourceTree = "<group>";
+		};
+		7604DB201145585F0090AB22 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9FBE6231123D98600115FFF /* SingleInputWindowController.h */,
+				C9FBE6241123D98600115FFF /* SingleInputWindowController.m */,
+				76DF8432113B693900B2A3B2 /* ComboInputWindowController.h */,
+				76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */,
+				767A8756112AF58E00A77326 /* MultiAddWindowController.h */,
+				767A8757112AF58E00A77326 /* MultiAddWindowController.m */,
+				762EAA29113ACB8E0093921D /* MilkMaidWindowController.h */,
+				762EAA2A113ACB8E0093921D /* MilkMaidWindowController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7604DB211145587A0090AB22 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				C9AF1F761116999500BC2280 /* TransparentTableViewCell.h */,
+				C9AF1F751116999500BC2280 /* TransparentTableViewCell.m */,
+				C9F70847111653CE00D3BB5B /* YRKSpinningProgressIndicator.h */,
+				C9F70848111653CE00D3BB5B /* YRKSpinningProgressIndicator.m */,
+				C9C148EE113B1AA400F292B7 /* MilkMaidPanel.h */,
+				C9C148EF113B1AA400F292B7 /* MilkMaidPanel.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		7604DB22114558B20090AB22 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C9A02F2B111BF11F00ACBFE1 /* NSDateHelper.h */,
+				C9A02F2A111BF11F00ACBFE1 /* NSDateHelper.m */,
+				76EA44B11111682E00E10B8A /* JSON */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		76EA44B11111682E00E10B8A /* JSON */ = {
