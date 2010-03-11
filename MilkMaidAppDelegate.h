@@ -7,15 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PreferencesWindowController.h"
 
 @class MilkMaidWindowController;
 
 @interface MilkMaidAppDelegate : NSObject {
 	NSMutableArray *windowControllers;
+	PreferencesWindowController *prefsWindowController;
 	NSStatusItem *statusItem;
 	BOOL windowsVisible;
 }
 
 -(IBAction)openNewWindow:(id)sender;
+-(void)updateMenuIcon;
+-(IBAction)showPreferences:(id)sender;
 
 @end

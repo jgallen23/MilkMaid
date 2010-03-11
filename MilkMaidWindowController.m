@@ -52,7 +52,8 @@
 		if ([[data objectForKey:@"stat"] isEqualToString:@"ok"]) {
 			timeline = [rtmController timeline];
 			[timeline retain];
-			[self performSelectorOnMainThread:@selector(getLists) withObject:nil waitUntilDone:NO];
+			[self getLists];
+			//[self performSelectorOnMainThread:@selector(getLists) withObject:nil waitUntilDone:NO];
 		} else {
 			[self getAuthToken];
 		}

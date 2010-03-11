@@ -14,27 +14,48 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	windowsVisible = YES;
-	NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-	statusItem = [[statusBar statusItemWithLength:NSVariableStatusItemLength] retain];
+
+	[self registerDefaultSettings];
+	[self updateMenuIcon];
 	
-	NSImage *statusIcon = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icon_menu" ofType:@"png"]];
-	
-	[statusItem setImage:statusIcon];
-	[statusItem setToolTip:@"MilkMaid"];
-	[statusItem setHighlightMode:YES];
-	
-	[statusItem setAction:@selector(toggleWindows)];
-	[statusItem setTarget:self];
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dockicon"]) {
+		ProcessSerialNumber psn = { 0, kCurrentProcess };
+		TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+	}
 		
 	windowControllers = [[NSMutableArray alloc] init];
 	[self openNewWindow:nil];
 
 }
 
+-(void)registerDefaultSettings {
+	[[NSUserDefaults standardUserDefaults] registerDefaults:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:1], @"menuicon", [NSNumber numberWithInt:1], @"dockicon", nil]];
+}
+
+-(void)updateMenuIcon {
+
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"menuicon"] && !statusItem) {
+		NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+		statusItem = [[statusBar statusItemWithLength:NSVariableStatusItemLength] retain];
+		
+		NSImage *statusIcon = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icon_menu" ofType:@"png"]];
+		
+		[statusItem setImage:statusIcon];
+		[statusItem setToolTip:@"MilkMaid"];
+		[statusItem setHighlightMode:YES];
+		
+		[statusItem setAction:@selector(toggleWindows)];
+		[statusItem setTarget:self];
+	} else if (statusItem) {
+		[statusItem release];
+	}
+
+
+}
+
 -(void)toggleWindows {
 	for (MilkMaidWindowController *wc in windowControllers) {
 		if (windowsVisible) {
-			NSLog(@"hide");
 			[wc.window orderOut:self];
 		} else {
 			[wc.window orderFrontRegardless];
@@ -53,6 +74,14 @@
 	[windowControllers addObject:windowController];
 	[[NSApplication sharedApplication] addWindowsItem:window title:window.title filename:NO];
 	[windowController showWindow:self];
+}
+
+-(void)showPreferences:(id)sender {
+	if (!prefsWindowController) {
+		prefsWindowController = [[PreferencesWindowController alloc] initWithWindowNibName:@"Preferences"];
+		[prefsWindowController showWindow:self];
+	}
+	[prefsWindowController.window orderFrontRegardless];
 }
 
 @end
