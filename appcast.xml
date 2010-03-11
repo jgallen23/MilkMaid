@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+p?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
    <channel>
       <title>MilkMaid</title>
@@ -6,16 +6,19 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.7.4</title>
-            <pubDate>Mon, 5 Mar 2010 8:00:00 +0000</pubDate>
+            <title>Version 0.7.5</title>
+            <pubDate>Thur, 11 Mar 2010 7:00:00 +0000</pubDate>
 			<description><![CDATA[
-				<h3>Bug Fixes</h3>
+				<h3>Features</h3>
 				<ul>
-					<li>Encoding issues when adding tasks with special characters</li>
-					<li>Issue when adding tasks in a new window (and first window is closed)</li>
+					<li>Option for Menubar Icon, Dock Icon or Both</li>
+				</ul>
+				<h3>Changes</h3>
+				<ul>
+					<li>New Icon</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.4.tar.gz" sparkle:version="0.7.4" length="1145675" type="application/octet-stream" sparkle:dsaSignature="MC0CFQC4bgsDYiowrNs3tBT5kDe2PjMCiAIUWCRZF5JlLzz5Dm1NqptPUPDFUCY=" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.5.tar.gz" sparkle:version="0.7.5" length="1145675" type="application/octet-stream" sparkle:dsaSignature="MCwCFAuJ+94+MlpGQShsrf29fpqyj1yUAhRAkaEEiAKK4T+M3Co03l63tAmVfQ==" />
          </item>
    </channel>
 </rss>
