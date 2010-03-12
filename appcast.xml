@@ -6,19 +6,24 @@
       <description></description>
       <language>en</language>
          <item>
-            <title>Version 0.7.5</title>
-            <pubDate>Thur, 11 Mar 2010 7:00:00 +0000</pubDate>
+            <title>Version 0.7.6</title>
+            <pubDate>Fri, 12 Mar 2010 7:00:00 +0000</pubDate>
 			<description><![CDATA[
 				<h3>Features</h3>
 				<ul>
-					<li>Option for Menubar Icon, Dock Icon or Both</li>
+					<li>Add tags to drop down list</li>
 				</ul>
 				<h3>Changes</h3>
 				<ul>
-					<li>New Icon</li>
+					<li>Preference to show tags in drop down</li>
+					<li>Removed Jump To Tag</li>
+				</ul>
+				<h3>Bug Fixes</h3>
+				<ul>
+					<li>Crash when preferences window closed</li>
 				</ul>
 			]]></description>
-			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.5.tar.gz" sparkle:version="0.7.5" length="1145675" type="application/octet-stream" sparkle:dsaSignature="MCwCFAuJ+94+MlpGQShsrf29fpqyj1yUAhRAkaEEiAKK4T+M3Co03l63tAmVfQ==" />
+			<enclosure url="http://github.com/downloads/jgallen23/MilkMaid/MilkMaid-0.7.6.tar.gz" sparkle:version="0.7.6" length="1145675" type="application/octet-stream" sparkle:dsaSignature="MC0CFEN4OHP8WykTHPUN2Oj7hMhJWoFtAhUAs1XGWEbG1Za+HYop8PjDUw+2urw=" />
          </item>
    </channel>
 </rss>
