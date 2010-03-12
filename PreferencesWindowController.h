@@ -13,6 +13,7 @@
 	IBOutlet NSButton *menuBarIconButton;
 	IBOutlet NSButton *dockIconButton;
 	IBOutlet NSButton *tagsInDropDownButton;
+	BOOL changed;
 }
 -(IBAction)menuBarClicked:(id)sender;
 -(IBAction)dockIconClicked:(id)sender;

@@ -13,7 +13,6 @@
 
 @interface MilkMaidAppDelegate : NSObject {
 	NSMutableArray *windowControllers;
-	PreferencesWindowController *prefsWindowController;
 	NSStatusItem *statusItem;
 	BOOL windowsVisible;
 }

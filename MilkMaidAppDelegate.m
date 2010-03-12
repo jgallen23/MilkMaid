@@ -57,8 +57,6 @@
 	} else if (statusItem) {
 		[statusItem release];
 	}
-
-
 }
 
 -(void)toggleWindows {
@@ -85,11 +83,8 @@
 }
 
 -(void)showPreferences:(id)sender {
-	if (!prefsWindowController) {
-		prefsWindowController = [[PreferencesWindowController alloc] initWithWindowNibName:@"Preferences"];
-		[prefsWindowController showWindow:self];
-	}
-	[prefsWindowController.window orderFrontRegardless];
+	PreferencesWindowController* prefsWindowController = [[PreferencesWindowController alloc] initWithWindowNibName:@"Preferences"];
+	[prefsWindowController showWindow:self];
 }
 
 @end

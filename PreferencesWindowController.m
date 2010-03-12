@@ -12,9 +12,11 @@
 @implementation PreferencesWindowController
 
 -(void)awakeFromNib {
+	changed = NO;
 	[menuBarIconButton setState:[[NSUserDefaults standardUserDefaults] boolForKey:@"menuicon"]];
 	[dockIconButton setState:[[NSUserDefaults standardUserDefaults] boolForKey:@"dockicon"]];
 	[tagsInDropDownButton setState:[[NSUserDefaults standardUserDefaults] boolForKey:@"tagsInDropDown"]];
+	[self.window orderFrontRegardless];
 }
 
 -(void)menuBarClicked:(id)sender {
@@ -23,7 +25,7 @@
 	} else {
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"menuicon"];
 	}
-
+	changed = YES;
 }
 
 -(void)dockIconClicked:(id)sender {
@@ -43,7 +45,9 @@
 }
 
 -(void)windowWillClose:(NSNotification *)notification {
-	[[NSApp delegate] updateMenuIcon];
+	if (changed)
+		[[[NSApplication sharedApplication] delegate] updateMenuIcon];
+	[self release];
 }
 
 @end
