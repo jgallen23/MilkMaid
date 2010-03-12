@@ -8,7 +8,7 @@
 
 #import "RTMHelper.h"
 #import "NSDateHelper.h"
-#import "RTMList.h"
+#import "RTMSearch.h"
 
 
 
@@ -175,8 +175,8 @@ static int compare(id obj1, id obj2, void *context) {
 	NSMutableArray *rtmLists = [[NSMutableArray alloc] init];
 	for (NSDictionary *list in lists) {
 		if ([[list objectForKey:@"archived"] intValue] == 0) {
-			RTMList *l = [[RTMList alloc] initWithTitle:[list objectForKey:@"name"] 
-											   listType:@"list" 
+			RTMSearch *l = [[RTMSearch alloc] initWithTitle:[list objectForKey:@"name"] 
+											 searchType:@"list" 
 										   searchParams:[[NSDictionary alloc] initWithObjectsAndKeys:[list objectForKey:@"id"], @"list_id", @"status:incomplete", @"filter", nil]
 											  addParams:[[NSDictionary alloc] initWithObjectsAndKeys:[list objectForKey:@"id"], @"list_id", nil]];
 			[rtmLists addObject:l];

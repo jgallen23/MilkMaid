@@ -135,7 +135,7 @@
 		if (!lastListTitle || ![selectedList.title isEqualToString:lastListTitle]) {
 			
 			[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
-			if (![selectedList.listType isEqualToString:@"search"]) {
+			if (![selectedList.searchType isEqualToString:@"search"]) {
 				[[NSUserDefaults standardUserDefaults] setObject:selectedList.title forKey:LAST_LIST];
 			}
 			lastListTitle = selectedList.title;

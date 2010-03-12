@@ -12,7 +12,7 @@
 @implementation RTMSearch
 
 @synthesize title;
-@synthesize listType;
+@synthesize searchType;
 @synthesize addParams;
 @synthesize addAttributes;
 @synthesize searchParams;
@@ -24,10 +24,10 @@
 	return self;
 }
 
--(id)initWithTitle:(NSString*)aTitle listType:(NSString*)aType searchParams:(NSDictionary*)aSearchParams addParams:(NSDictionary*)aAddParams {
+-(id)initWithTitle:(NSString*)aTitle searchType:(NSString*)aType searchParams:(NSDictionary*)aSearchParams addParams:(NSDictionary*)aAddParams {
 	if (self=[super init]) {
 		self.title = aTitle;
-		self.listType = aType;
+		self.searchType = aType;
 		self.searchParams = aSearchParams;
 		self.addParams = aAddParams;
 		self.addAttributes = nil;
@@ -35,10 +35,10 @@
 	return self;
 }
 
--(id)initWithTitle:(NSString*)aTitle listType:(NSString*)aType searchParams:(NSDictionary*)aSearchParams addAttributes:(NSString*)aAddAttributes {
+-(id)initWithTitle:(NSString*)aTitle searchType:(NSString*)aType searchParams:(NSDictionary*)aSearchParams addAttributes:(NSString*)aAddAttributes {
 	if (self=[super init]) {
 		self.title = aTitle;
-		self.listType = aType;
+		self.searchType = aType;
 		self.searchParams = aSearchParams;
 		self.addParams = nil;
 		self.addAttributes = aAddAttributes;
@@ -48,7 +48,7 @@
 
 -(void)dealloc {
 	[title release];
-	[listType release];
+	[searchType release];
 	[searchParams release];
 	[addParams release];
 	[addAttributes release];
