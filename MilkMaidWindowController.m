@@ -526,7 +526,7 @@
 	if (!singleInputWindowController)
 		singleInputWindowController = [[SingleInputWindowController alloc] initWithWindowNibName:@"SingleInput"];
 	[singleInputWindowController setButtonText:@"Set Tags"];
-	[singleInputWindowController setTextValue:[task objectForKey:@"tags"]];
+	[singleInputWindowController setTextValue:[[task objectForKey:@"tags"] componentsJoinedByString:@","]];
 	NSWindow *sheet = [singleInputWindowController window];
 	[NSApp beginSheet:sheet modalForWindow:self.window modalDelegate:self 
 	   didEndSelector:@selector(closeSetTagsTaskSheet:returnCode:contextInfo:) contextInfo:nil];
