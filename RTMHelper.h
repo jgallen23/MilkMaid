@@ -13,5 +13,7 @@
 
 }
 
-- (NSMutableArray*)getFlatTaskList:(NSDictionary*)rtmResponse;
+-(NSMutableArray*)getFlatTaskList:(NSDictionary*)rtmResponse;
++(NSMutableArray*)getLists:(NSDictionary *)rtmResponse;
++(NSColor*)colorFromHexRGB:(NSString *)inColorString;
 @end

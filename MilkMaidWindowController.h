@@ -23,7 +23,6 @@
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;
 	NSString *lastListTitle;
-	NSString *currentSearch;
 	NSMutableArray *tasks;
 	NSString *timeline;
 	IBOutlet BWTransparentPopUpButton *listPopUp;
@@ -33,7 +32,6 @@
 	NSImage *priority2Image;
 	NSImage *priority3Image;
 	NSMutableArray *tagList;
-	NSString *globalTaskAttributes;
 	BOOL loadLastList;
 	
 	IBOutlet YRKSpinningProgressIndicator *progress;
@@ -54,5 +52,4 @@
 -(IBAction)menuRenameTask:(id)sender;
 -(IBAction)menuSetTagsTask:(id)sender;
 -(IBAction)menuSetDueTask:(id)sender;
--(IBAction)menuJumpToTag:(id)sender;
 @end

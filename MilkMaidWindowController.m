@@ -26,7 +26,7 @@
 	id tags = [[NSUserDefaults standardUserDefaults] objectForKey:TAGS];
 	if (tags) {
 		tagList = (NSMutableArray*)tags;
-		NSLog(@"%@", tagList);
+
 	} else {
 		tagList = [[NSMutableArray alloc] init];
 	}
@@ -103,7 +103,9 @@
 	lists = [RTMHelper getLists:data];
 	for (RTMSearch *list in lists) {
 		[listPopUp addItemWithTitle:list.title];
-
+	}
+	for (NSString *tag in tagList) {
+		[self addTagToDropDown:tag];
 	}
 	[lists retain];
 	//[data release];
@@ -145,7 +147,7 @@
 	}
 }
 
--(void)getTasksFromCurrentList {
+-(void)getTasks {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[progress setHidden:NO];
 
@@ -163,41 +165,6 @@
 	[progress setHidden:YES];
 }
 
--(void)searchTasks:(NSString*)searchString {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[progress setHidden:NO];
-	[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
-	[listPopUp addItemWithTitle:searchString];
-	[listPopUp selectItemWithTitle:searchString];
-	[lists addObject:[[NSDictionary alloc] initWithObjectsAndKeys:searchString, @"id", searchString, 
-					  @"name", @"search", @"type", globalTaskAttributes, @"globals", nil]];
-	
-	NSString *newSearch = [NSString stringWithFormat:@"(%@) AND status:incomplete", searchString];
-	
-
-	NSDictionary *params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:newSearch, nil] 
-														 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
-	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:params withToken:YES];
-	
-	RTMHelper *rtmHelper = [[RTMHelper alloc] init];
-	
-	tasks = [rtmHelper getFlatTaskList:data];
-	
-	[self performSelectorOnMainThread:@selector(loadTaskData) withObject:nil waitUntilDone:NO];
-	
-	[tasks retain];
-	[pool release];
-	[progress setHidden:YES];
-}
-
--(void)getTasks {
-	if ([self getCurrentList]) {
-		[self getTasksFromCurrentList];
-	} else {
-		[self searchTasks:currentSearch];
-	}
-	
-}
 
 -(void)menuRefresh:(id)sender {
 	[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
@@ -264,10 +231,23 @@
 	
 }
 
+-(void)addTagToDropDown:(NSString*)tagName {
+	NSString *tag = [NSString stringWithFormat:@"#%@", tagName];
+	RTMSearch *search = [[RTMSearch alloc] 
+						 initWithTitle:tag
+						 searchType:@"tag" 
+						 searchParams:[[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"tag:%@ and status:incomplete",tagName], @"filter", nil]
+						 addAttributes:tag];
+	[lists addObject:search];
+	[listPopUp addItemWithTitle:tag];
+}
+
 -(void)addGlobalTags:(NSArray*)tags {
 	for (NSString *tag in tags) {
-		if (![tagList containsObject:tag])
+		if (![tagList containsObject:tag]){
 			[tagList addObject:tag];
+			[self addTagToDropDown:tag];
+		}
 	}
 	[tagList retain];
 	[[NSUserDefaults standardUserDefaults] setObject:tagList forKey:TAGS];
@@ -317,7 +297,8 @@
 	RTMSearch *currentList = [self getCurrentList];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	task = [NSString stringWithFormat:@"%@ %@", task, globalTaskAttributes];
+	if (currentList.addAttributes)
+		task = [NSString stringWithFormat:@"%@ %@", task, currentList.addAttributes];
 	
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 																	   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
@@ -336,13 +317,15 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSArray *newTasks = [newTasksArray objectAtIndex:0];
 	NSString *globalAttributes = [newTasksArray objectAtIndex:1];
+	RTMSearch *currentSearch = [self getCurrentList];
 	for (NSString *t in newTasks) {
+		NSString *globalTaskAttributes = (currentSearch.addAttributes)?currentSearch.addAttributes:@"";
 		NSString *taskName = [NSString stringWithFormat:@"%@ %@ %@", t, globalTaskAttributes, globalAttributes];
 		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, taskName, @"1", nil] 
 																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-		RTMSearch *currentList = [self getCurrentList];
-		if (currentList.addParams) {
-			[params addEntriesFromDictionary:currentList.addParams];
+		
+		if (currentSearch.addParams) {
+			[params addEntriesFromDictionary:currentSearch.addParams];
 		}
 		[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
 		
@@ -450,14 +433,25 @@
 	   didEndSelector:@selector(closeSearchSheet:returnCode:contextInfo:) contextInfo:nil];
 }
 
+-(void)search:(NSString*)searchString {
+	RTMSearch *search = [[RTMSearch alloc] 
+						 initWithTitle:searchString
+						 searchType:@"search" 
+						 searchParams:[[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"(%@) and status:incomplete",searchString], @"filter", nil]
+						 addAttributes:nil];
+	[lists addObject:search];
+	[listPopUp addItemWithTitle:searchString];
+	[listPopUp selectItemWithTitle:searchString];
+}
+
 -(void)closeSearchSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[sheet orderOut:self];
 	if (returnCode == 1) {
-		currentSearch = [singleInputWindowController text];
-		lastListTitle = nil;
-		[currentSearch retain];
-
-		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
+		NSString *currentSearch = [singleInputWindowController text];
+		
+		[self search:currentSearch];
+		
+		//[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
 	}
 	
 }
@@ -592,28 +586,6 @@
 	[self getTasks];
 	[pool release];
 	[progress setHidden:YES];
-}
-
--(void)menuJumpToTag:(id)sender {
-	if (!comboInputWindowController)
-		comboInputWindowController = [[ComboInputWindowController alloc] initWithWindowNibName:@"ComboInput"];
-	[comboInputWindowController setData:tagList];
-	NSWindow *sheet = [comboInputWindowController window];
-	[NSApp beginSheet:sheet modalForWindow:self.window modalDelegate:self 
-	   didEndSelector:@selector(closeJumpToTagSheet:returnCode:contextInfo:) contextInfo:nil];
-}
-
--(void)closeJumpToTagSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
-	[sheet orderOut:self];
-	if (returnCode == 1) {
-		NSString *tag = [comboInputWindowController text];
-		[self addGlobalTags:[[NSArray alloc] initWithObjects:tag,nil]];
-		lastListTitle = nil;
-		currentSearch = [NSString stringWithFormat:@"tag:%@", tag];
-		[currentSearch retain];
-		globalTaskAttributes = [[NSString stringWithFormat:@"#%@", tag] retain]; 
-		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
-	}
 }
 
 @end
