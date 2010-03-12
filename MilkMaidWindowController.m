@@ -104,8 +104,10 @@
 	for (RTMSearch *list in lists) {
 		[listPopUp addItemWithTitle:list.title];
 	}
-	for (NSString *tag in tagList) {
-		[self addTagToDropDown:tag];
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"tagsInDropDown"]) {
+		for (NSString *tag in tagList) {
+			[self addTagToDropDown:tag];
+		}
 	}
 	[lists retain];
 	//[data release];
@@ -232,14 +234,16 @@
 }
 
 -(void)addTagToDropDown:(NSString*)tagName {
-	NSString *tag = [NSString stringWithFormat:@"#%@", tagName];
-	RTMSearch *search = [[RTMSearch alloc] 
-						 initWithTitle:tag
-						 searchType:@"tag" 
-						 searchParams:[[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"tag:%@ and status:incomplete",tagName], @"filter", nil]
-						 addAttributes:tag];
-	[lists addObject:search];
-	[listPopUp addItemWithTitle:tag];
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"tagsInDropDown"]) {
+		NSString *tag = [NSString stringWithFormat:@"#%@", tagName];
+		RTMSearch *search = [[RTMSearch alloc] 
+							 initWithTitle:tag
+							 searchType:@"tag" 
+							 searchParams:[[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"tag:%@ and status:incomplete",tagName], @"filter", nil]
+							 addAttributes:tag];
+		[lists addObject:search];
+		[listPopUp addItemWithTitle:tag];
+	}
 }
 
 -(void)addGlobalTags:(NSArray*)tags {

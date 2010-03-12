@@ -12,8 +12,10 @@
 @interface PreferencesWindowController : NSWindowController {
 	IBOutlet NSButton *menuBarIconButton;
 	IBOutlet NSButton *dockIconButton;
+	IBOutlet NSButton *tagsInDropDownButton;
 }
 -(IBAction)menuBarClicked:(id)sender;
 -(IBAction)dockIconClicked:(id)sender;
+-(IBAction)tagsInDropDownClicked:(id)sender;
 
 @end

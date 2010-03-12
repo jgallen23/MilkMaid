@@ -29,7 +29,15 @@
 }
 
 -(void)registerDefaultSettings {
-	[[NSUserDefaults standardUserDefaults] registerDefaults:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:1], @"menuicon", [NSNumber numberWithInt:1], @"dockicon", nil]];
+	[[NSUserDefaults standardUserDefaults] registerDefaults:
+	 [[NSDictionary alloc] initWithObjectsAndKeys:
+	  [NSNumber numberWithInt:1], 
+	  @"menuicon", 
+	  [NSNumber numberWithInt:1], 
+	  @"dockicon", 
+	  [NSNumber numberWithInt:1],
+	  @"tagsInDropDown",
+	  nil]];
 }
 
 -(void)updateMenuIcon {
