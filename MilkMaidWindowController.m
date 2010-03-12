@@ -37,7 +37,7 @@
 	
 	[taskTable setDelegate:self];
 	[taskTable setDataSource:self];
-	return;
+	//return;
 	rtmController = [[EVRZRtmApi alloc] initWithApiKey:apiKey andApiSecret:secret];
 
 	[NSThread detachNewThreadSelector:@selector(checkToken) toTarget:self withObject:nil];
@@ -446,6 +446,7 @@
 	[lists addObject:search];
 	[listPopUp addItemWithTitle:searchString];
 	[listPopUp selectItemWithTitle:searchString];
+	[self listSelected:nil];
 }
 
 -(void)closeSearchSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
