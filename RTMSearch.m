@@ -6,10 +6,10 @@
 //  Copyright 2010 JGA. All rights reserved.
 //
 
-#import "RTMList.h"
+#import "RTMSearch.h"
 
 
-@implementation RTMList
+@implementation RTMSearch
 
 @synthesize title;
 @synthesize listType;

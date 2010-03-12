@@ -93,7 +93,7 @@
 	[alert release];
 }
 
--(RTMList*)getCurrentList {
+-(RTMSearch*)getCurrentList {
 	return [lists objectAtIndex:[listPopUp indexOfSelectedItem]-1];
 }
 
@@ -101,7 +101,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.lists.getList" andParameters:[[NSDictionary alloc]init] withToken:YES];
 	lists = [RTMHelper getLists:data];
-	for (RTMList *list in lists) {
+	for (RTMSearch *list in lists) {
 		[listPopUp addItemWithTitle:list.title];
 
 	}
@@ -131,7 +131,7 @@
 	NSInteger selectedIndex = [listPopUp indexOfSelectedItem];
 	selectedIndex--;
 	if (selectedIndex > -1) {
-		RTMList *selectedList = [self getCurrentList];
+		RTMSearch *selectedList = [self getCurrentList];
 		if (!lastListTitle || ![selectedList.title isEqualToString:lastListTitle]) {
 			
 			[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
@@ -314,14 +314,13 @@
 
 -(void)addTask:(NSString*)task {
 	[progress setHidden:NO];
-	RTMList *currentList = [self getCurrentList];
+	RTMSearch *currentList = [self getCurrentList];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	task = [NSString stringWithFormat:@"%@ %@", task, globalTaskAttributes];
 	
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 																	   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-	RTMList *currentList = [self getCurrentList];
 	if (currentList.addParams) {
 		[params addEntriesFromDictionary:currentList.addParams];
 	}
@@ -341,7 +340,7 @@
 		NSString *taskName = [NSString stringWithFormat:@"%@ %@ %@", t, globalTaskAttributes, globalAttributes];
 		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, taskName, @"1", nil] 
 																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-		RTMList *currentList = [self getCurrentList];
+		RTMSearch *currentList = [self getCurrentList];
 		if (currentList.addParams) {
 			[params addEntriesFromDictionary:currentList.addParams];
 		}

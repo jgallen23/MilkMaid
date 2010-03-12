@@ -18,7 +18,7 @@
 		76646D891147F96B00803310 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76646D881147F96B00803310 /* PreferencesWindowController.m */; };
 		767A8743112AF51E00A77326 /* MultiAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 767A8742112AF51E00A77326 /* MultiAdd.xib */; };
 		767A8758112AF58E00A77326 /* MultiAddWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767A8757112AF58E00A77326 /* MultiAddWindowController.m */; };
-		768FC5C4114945B900B371DA /* RTMList.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FC5C3114945B900B371DA /* RTMList.m */; };
+		768FC5C4114945B900B371DA /* RTMSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FC5C3114945B900B371DA /* RTMSearch.m */; };
 		76DF8422113B687400B2A3B2 /* ComboInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76DF8421113B687400B2A3B2 /* ComboInput.xib */; };
 		76DF8434113B693900B2A3B2 /* ComboInputWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */; };
 		76EA44521111650700E10B8A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EA44511111650700E10B8A /* BWToolkitFramework.framework */; };
@@ -88,8 +88,8 @@
 		767A8742112AF51E00A77326 /* MultiAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiAdd.xib; sourceTree = "<group>"; };
 		767A8756112AF58E00A77326 /* MultiAddWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiAddWindowController.h; sourceTree = "<group>"; };
 		767A8757112AF58E00A77326 /* MultiAddWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiAddWindowController.m; sourceTree = "<group>"; };
-		768FC5C2114945B900B371DA /* RTMList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMList.h; sourceTree = "<group>"; };
-		768FC5C3114945B900B371DA /* RTMList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMList.m; sourceTree = "<group>"; };
+		768FC5C2114945B900B371DA /* RTMSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMSearch.h; sourceTree = "<group>"; };
+		768FC5C3114945B900B371DA /* RTMSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMSearch.m; sourceTree = "<group>"; };
 		76DF8421113B687400B2A3B2 /* ComboInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComboInput.xib; sourceTree = "<group>"; };
 		76DF8432113B693900B2A3B2 /* ComboInputWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboInputWindowController.h; sourceTree = "<group>"; };
 		76DF8433113B693900B2A3B2 /* ComboInputWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboInputWindowController.m; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 				76EA44A3111167A500E10B8A /* EVRZRtmApi.m */,
 				C9041E75111280A200D0C6A3 /* RTMHelper.h */,
 				C9041E76111280A200D0C6A3 /* RTMHelper.m */,
-				768FC5C2114945B900B371DA /* RTMList.h */,
-				768FC5C3114945B900B371DA /* RTMList.m */,
+				768FC5C2114945B900B371DA /* RTMSearch.h */,
+				768FC5C3114945B900B371DA /* RTMSearch.m */,
 			);
 			name = RTM;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 				C9C148F0113B1AA400F292B7 /* MilkMaidPanel.m in Sources */,
 				76DF8434113B693900B2A3B2 /* ComboInputWindowController.m in Sources */,
 				76646D891147F96B00803310 /* PreferencesWindowController.m in Sources */,
-				768FC5C4114945B900B371DA /* RTMList.m in Sources */,
+				768FC5C4114945B900B371DA /* RTMSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

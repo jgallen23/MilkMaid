@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface RTMList : NSObject {
+@interface RTMSearch : NSObject {
 	NSString* title;
 	NSString* listType;
 	NSDictionary* searchParams;

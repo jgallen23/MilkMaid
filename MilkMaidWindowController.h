@@ -14,7 +14,7 @@
 #import "SingleInputWindowController.h"
 #import "MultiAddWindowController.h"
 #import "ComboInputWindowController.h"
-#import "RTMList.h"
+#import "RTMSearch.h"
 
 @interface MilkMaidWindowController : NSWindowController {
 	SingleInputWindowController *singleInputWindowController;
