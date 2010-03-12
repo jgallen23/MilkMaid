@@ -14,6 +14,7 @@
 #import "SingleInputWindowController.h"
 #import "MultiAddWindowController.h"
 #import "ComboInputWindowController.h"
+#import "RTMList.h"
 
 @interface MilkMaidWindowController : NSWindowController {
 	SingleInputWindowController *singleInputWindowController;
@@ -21,7 +22,7 @@
 	ComboInputWindowController *comboInputWindowController;
 	EVRZRtmApi *rtmController;
 	NSMutableArray *lists;
-	NSDictionary *currentList;
+	NSString *lastListTitle;
 	NSString *currentSearch;
 	NSMutableArray *tasks;
 	NSString *timeline;

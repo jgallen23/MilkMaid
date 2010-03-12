@@ -7,6 +7,7 @@
 //
 
 #import "MilkMaidWindowController.h"
+
 #define TOKEN @"Token"
 #define LAST_LIST @"LastList"
 #define TAGS @"Tags"
@@ -92,22 +93,18 @@
 	[alert release];
 }
 
+-(RTMList*)getCurrentList {
+	return [lists objectAtIndex:[listPopUp indexOfSelectedItem]-1];
+}
+
 - (void)getLists {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.lists.getList" andParameters:[[NSDictionary alloc]init] withToken:YES];
-	lists = [[data objectForKey:@"lists"] objectForKey:@"list"];
-	NSMutableArray *listToRemove = [[NSMutableArray alloc]init];
-	for (NSDictionary *list in lists) {
-		if ([[list objectForKey:@"archived"] intValue] == 0) {
-			[listPopUp addItemWithTitle:[list objectForKey:@"name"]];
-		} else {
-			[listToRemove addObject:list];
-		}
+	lists = [RTMHelper getLists:data];
+	for (RTMList *list in lists) {
+		[listPopUp addItemWithTitle:list.title];
+
 	}
-	for (NSDictionary *list in listToRemove) {
-		[lists removeObject:list];
-	}
-	[listToRemove release];
 	[lists retain];
 	//[data release];
 	[pool release];
@@ -133,34 +130,26 @@
 	
 	NSInteger selectedIndex = [listPopUp indexOfSelectedItem];
 	selectedIndex--;
-	if (selectedIndex != -1 && [currentList objectForKey:@"id"] != [[lists objectAtIndex:selectedIndex] objectForKey:@"id"]) {
-		currentList = [lists objectAtIndex:selectedIndex];
-		[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
-		
-		if ([[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
-			globalTaskAttributes = [currentList objectForKey:@"globals"];
-		} else {
-			globalTaskAttributes = @"";
-			[[NSUserDefaults standardUserDefaults] setObject:[currentList objectForKey:@"name"] forKey:LAST_LIST];
+	if (selectedIndex > -1) {
+		RTMList *selectedList = [self getCurrentList];
+		if (!lastListTitle || ![selectedList.title isEqualToString:lastListTitle]) {
+			
+			[[taskScroll contentView] scrollToPoint:NSMakePoint(0, 0)];
+			if (![selectedList.listType isEqualToString:@"search"]) {
+				[[NSUserDefaults standardUserDefaults] setObject:selectedList.title forKey:LAST_LIST];
+			}
+			lastListTitle = selectedList.title;
+			[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
+			
 		}
-		[NSThread detachNewThreadSelector:@selector(getTasks) toTarget:self withObject:nil];
-		[currentList retain];
 	}
 }
 
 -(void)getTasksFromCurrentList {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[progress setHidden:NO];
-	NSDictionary *params;
-	if ([[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
-		NSString *filter = [NSString stringWithFormat:@"(%@) and status:incomplete", [currentList objectForKey:@"id"]];
-		params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:filter, nil] 
-															 forKeys:[NSArray arrayWithObjects:@"filter", nil]];
-	} else {
-		params = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[currentList objectForKey:@"id"], @"status:incomplete", nil] 
-														 forKeys:[NSArray arrayWithObjects:@"list_id", @"filter", nil]];
-	}
-	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:params withToken:YES];
+
+	NSDictionary *data = [rtmController dataByCallingMethod:@"rtm.tasks.getList" andParameters:[[self getCurrentList] searchParams] withToken:YES];
 	
 	RTMHelper *rtmHelper = [[RTMHelper alloc] init];
 	
@@ -202,7 +191,7 @@
 }
 
 -(void)getTasks {
-	if (currentList) {
+	if ([self getCurrentList]) {
 		[self getTasksFromCurrentList];
 	} else {
 		[self searchTasks:currentSearch];
@@ -325,15 +314,16 @@
 
 -(void)addTask:(NSString*)task {
 	[progress setHidden:NO];
+	RTMList *currentList = [self getCurrentList];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	task = [NSString stringWithFormat:@"%@ %@", task, globalTaskAttributes];
 	
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 																	   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-	if (currentList && ![[currentList objectForKey:@"type"] isEqualToString:@"search"]) {
-		[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
-	}
+	//if (currentList && ![[currentList listType] isEqualToString:@"search"]) {
+	//	[params setObject:[currentList title] forKey:@"list_id"];
+	//}
 	[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
 	
 	[self getTasks];
@@ -350,9 +340,9 @@
 		NSString *taskName = [NSString stringWithFormat:@"%@ %@ %@", t, globalTaskAttributes, globalAttributes];
 		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, taskName, @"1", nil] 
 																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-		if (currentList) {
-			[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
-		}
+		//if (currentList) {
+		//	[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
+		//}
 		[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
 		
 	}
@@ -463,7 +453,7 @@
 	[sheet orderOut:self];
 	if (returnCode == 1) {
 		currentSearch = [singleInputWindowController text];
-		currentList = nil;
+		lastListTitle = nil;
 		[currentSearch retain];
 
 		[NSThread detachNewThreadSelector:@selector(searchTasks:) toTarget:self withObject:currentSearch];
@@ -617,7 +607,7 @@
 	if (returnCode == 1) {
 		NSString *tag = [comboInputWindowController text];
 		[self addGlobalTags:[[NSArray alloc] initWithObjects:tag,nil]];
-		currentList = nil;
+		lastListTitle = nil;
 		currentSearch = [NSString stringWithFormat:@"tag:%@", tag];
 		[currentSearch retain];
 		globalTaskAttributes = [[NSString stringWithFormat:@"#%@", tag] retain]; 

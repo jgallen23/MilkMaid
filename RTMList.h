@@ -11,13 +11,18 @@
 
 @interface RTMList : NSObject {
 	NSString* title;
-	NSString* type;
+	NSString* listType;
 	NSDictionary* searchParams;
 	NSDictionary* addParams;
+	NSString* addAttributes;
 }
 
 @property (copy) NSString* title;
-@property (copy) NSString* type;
-@property (assign) NSDictionary* searchParams;
-@property (assign) NSDictionary* addParams;
+@property (copy) NSString* listType;
+@property (retain) NSDictionary* searchParams;
+@property (retain) NSDictionary* addParams;
+@property (copy) NSString* addAttributes;
+
+-(id)initWithTitle:(NSString *)aTitle listType:(NSString *)aType searchParams:(NSDictionary *)aSearchParams addParams:(NSDictionary *)aAddParams;
+-(id)initWithTitle:(NSString *)aTitle listType:(NSString *)aType searchParams:(NSDictionary *)aSearchParams addAttributes:(NSString *)aAddAttributes;
 @end

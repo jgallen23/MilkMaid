@@ -8,6 +8,7 @@
 
 #import "RTMHelper.h"
 #import "NSDateHelper.h"
+#import "RTMList.h"
 
 
 
@@ -167,6 +168,21 @@ static int compare(id obj1, id obj2, void *context) {
 			  blue:	(float)blueByte	/ 0xff
 			  alpha:1.0];
 	return result;
+}
+
++(NSMutableArray*)getLists:(NSDictionary*)rtmResponse {
+	NSArray* lists = [[rtmResponse objectForKey:@"lists"] objectForKey:@"list"];
+	NSMutableArray *rtmLists = [[NSMutableArray alloc] init];
+	for (NSDictionary *list in lists) {
+		if ([[list objectForKey:@"archived"] intValue] == 0) {
+			RTMList *l = [[RTMList alloc] initWithTitle:[list objectForKey:@"name"] 
+											   listType:@"list" 
+										   searchParams:[[NSDictionary alloc] initWithObjectsAndKeys:[list objectForKey:@"id"], @"list_id", @"status:incomplete", @"filter", nil]
+											  addParams:[[NSDictionary alloc] initWithObjectsAndKeys:[list objectForKey:@"id"], @"list_id", nil]];
+			[rtmLists addObject:l];
+		}
+	}
+	return rtmLists;
 }
 
 @end
