@@ -25,7 +25,7 @@
 	
 	id tags = [[NSUserDefaults standardUserDefaults] objectForKey:TAGS];
 	if (tags) {
-		tagList = (NSMutableArray*)tags;
+		tagList = [[NSMutableArray alloc] initWithArray:[(NSMutableArray*)tags sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)]];
 
 	} else {
 		tagList = [[NSMutableArray alloc] init];
