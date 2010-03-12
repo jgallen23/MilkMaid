@@ -321,9 +321,10 @@
 	
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, task, @"1", nil] 
 																	   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-	//if (currentList && ![[currentList listType] isEqualToString:@"search"]) {
-	//	[params setObject:[currentList title] forKey:@"list_id"];
-	//}
+	RTMList *currentList = [self getCurrentList];
+	if (currentList.addParams) {
+		[params addEntriesFromDictionary:currentList.addParams];
+	}
 	[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
 	
 	[self getTasks];
@@ -340,9 +341,10 @@
 		NSString *taskName = [NSString stringWithFormat:@"%@ %@ %@", t, globalTaskAttributes, globalAttributes];
 		NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObjects:timeline, taskName, @"1", nil] 
 																		   forKeys:[NSArray arrayWithObjects:@"timeline", @"name", @"parse", nil]];
-		//if (currentList) {
-		//	[params setObject:[currentList objectForKey:@"id"] forKey:@"list_id"];
-		//}
+		RTMList *currentList = [self getCurrentList];
+		if (currentList.addParams) {
+			[params addEntriesFromDictionary:currentList.addParams];
+		}
 		[rtmController dataByCallingMethod:@"rtm.tasks.add" andParameters:params withToken:YES];
 		
 	}
